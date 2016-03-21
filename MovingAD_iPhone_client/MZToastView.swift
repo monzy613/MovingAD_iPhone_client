@@ -8,20 +8,20 @@
 
 import UIKit
 
-enum MZToastPosition: Int {
+public enum MZToastPosition: Int {
     case High
     case Middle
     case Low
     
 }
 
-enum MZToastLength: Float {
+public enum MZToastLength: Float {
     case Long
     case Middle
     case Short
 }
 
-enum MZDisplayMode: Int {
+public enum MZDisplayMode: Int {
     case Dark
     case Light
 }
@@ -43,6 +43,11 @@ class MZToastView: UIView {
     var mzPosition: MZToastPosition
     var mzLength: MZToastLength
     var mzDisplayMode: MZDisplayMode
+    var onFinish: (Void -> Void)?
+    
+    static func show(superView: UIView, content: String, position: MZToastPosition, length: MZToastLength, lightMode: MZDisplayMode, onFinish: (Void -> Void)?) {
+        let _ = MZToastView(superView: superView, content: content, position: position, length: length, lightMode: lightMode, onFinish: onFinish)
+    }
     
     //Mark init
     override init(frame: CGRect) {
@@ -52,56 +57,19 @@ class MZToastView: UIView {
         super.init(frame: frame)
     }
     
-/*
-    func configure(superView: UIView, content: String, position: MZToastPosition, length: MZToastLength, lightMode: MZDisplayMode) -> MZToastView {
-        superView.addSubview(self)
+    
+    init(superView: UIView, content: String, position: MZToastPosition, length: MZToastLength, lightMode: MZDisplayMode, onFinish: (Void -> Void)?) {
         mzPosition = position
         mzLength = length
         mzDisplayMode = lightMode
-        if let superFrame = superview?.frame {
-            switch lightMode {
-            case .Dark:
-                self.backgroundColor = UIColor.darkGrayColor()
-                break
-            case .Light:
-                self.backgroundColor = UIColor.lightGrayColor()
-                break
-            }
-            
-            let midX = superFrame.width / 2
-            let midY = superFrame.height / 2
-            let toastWidth = superFrame.width * widthPercent
-            self.layer.cornerRadius = toastWidth / 50
-            self.layer.masksToBounds = true
-            self.alpha = 0
-            let toastHeight = toastWidth / ratio
-            let startX = midX - toastWidth / 2
-            var startY: CGFloat = 0
-            var frame: CGRect
-            switch position {
-            case .High:
-                startY = superFrame.height * highOffset
-                break
-            case .Middle:
-                startY = midY - toastHeight / 2
-                break
-            case .Low:
-                startY = superFrame.height * lowOffset
-                break
-            }
-            frame = CGRect(x: startX, y: startY, width: toastWidth, height: toastHeight)
-            self.frame = frame
-            return configLabel(content, lightMode: lightMode)
-        }
-        return self
+        self.onFinish = onFinish
+        super.init(frame: CGRectMake(0, 0, 0, 0))
+        configure(superView, content: content, position: position, length: length, lightMode: lightMode).show()
     }
-*/
+    
     
     func configure(superView: UIView, content: String, position: MZToastPosition, length: MZToastLength, lightMode: MZDisplayMode) -> MZToastView {
         superView.addSubview(self)
-        mzPosition = position
-        mzLength = length
-        mzDisplayMode = lightMode
         let screenBounds = UIScreen.mainScreen().bounds
         switch lightMode {
         case .Dark:
@@ -186,6 +154,7 @@ class MZToastView: UIView {
         })
     }
     
+    
     func dismissSelf(withDuration duration: NSTimeInterval) {
         UIView.animateWithDuration(duration, animations: {
             self.alpha = 0.0
@@ -193,6 +162,10 @@ class MZToastView: UIView {
                 complete in
                 if complete {
                     self.removeFromSuperview()
+                    if self.onFinish != nil {
+                        self.onFinish?()
+                        self.onFinish = nil
+                    }
                 }
         }
     }
@@ -204,6 +177,10 @@ class MZToastView: UIView {
                 complete in
                 if complete {
                     self.removeFromSuperview()
+                    if self.onFinish != nil {
+                        self.onFinish?()
+                        self.onFinish = nil
+                    }
                 }
         }
     }
@@ -214,8 +191,7 @@ class MZToastView: UIView {
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        print("touchesBegan")
-        dismissSelf(withDuration: dismissDuration / 3)
+        dismissSelf(withDuration: dismissDuration / 3.5)
     }
     
 }

@@ -9,6 +9,9 @@
 import UIKit
 
 class MADLoginViewController: UIViewController, UITextFieldDelegate {
+    var loginViewOriginCenter: CGPoint?
+    
+    @IBOutlet weak var loginViewCenterYConstraint: NSLayoutConstraint!
     @IBOutlet weak var loginView: DesignableView!
     @IBOutlet weak var accountTextField: DesignableTextField!
     @IBOutlet weak var passwordTextField: DesignableTextField!
@@ -16,14 +19,29 @@ class MADLoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var loginButton: DesignableButton!
     @IBAction func loginButtonPressed(sender: DesignableButton) {
         print("loginButtonPressed")
+        if let account = accountTextField.text, password = passwordTextField.text {
+            MADNetwork.Post(url: URL.login,
+                            parameters: ["account": account, "password": password],
+                            onSuccess: {
+                                print("login success")
+                            },
+                            onFailure: {
+                                print("login failed")
+                            })
+        }
     }
     
+    @IBAction func dismissButtonPressed(sender: UIButton) {
+        view.endEditing(true)
+        loginView.animation = "zoomOut"
+        loginView.animate()
+        dismissViewControllerAnimated(true, completion: {})
+    }
     
     
     //textField delegage methods
     
     func textFieldDidEndEditing(textField: UITextField) {
-        print("didend")
     }
     
     
@@ -37,26 +55,35 @@ class MADLoginViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    func initObservers() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardDidShow:", name: UIKeyboardDidShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    func keyboardDidShow(notif: NSNotification) {
+        if let userInfo = notif.userInfo {
+            let keyboardFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
+            print("keyboardFrame: \(keyboardFrame)")
+            let newCenterY = keyboardFrame.origin.y - loginView.frame.height / 2
+            MZAnim.animConstraint(constraint: loginViewCenterYConstraint, destConstant: Float(newCenterY - loginViewOriginCenter!.y))
+        }
+    }
+    
+    func keyboardWillHide(notif: NSNotification) {
+        MZAnim.animConstraint(constraint: loginViewCenterYConstraint, destConstant: 0)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        loginViewOriginCenter = loginView.center
+        initObservers()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
