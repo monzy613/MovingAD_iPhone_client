@@ -14,7 +14,6 @@ class MADNetwork {
     static func Post(url urlString: String, parameters: [String: AnyObject]?, onSuccess: Void -> Void, onFailure: Void -> Void) {
         Alamofire.request(.POST, URL.login, parameters: parameters).responseJSON {
             response in
-            
         }
     }
     

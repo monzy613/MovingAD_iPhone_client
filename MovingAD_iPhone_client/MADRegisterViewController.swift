@@ -44,6 +44,12 @@ class MADRegisterViewController: UIViewController {
         startTiming()
     }
     
+    @IBAction func panGestureTriggerred(sender: UIPanGestureRecognizer) {
+        let velocity = sender.velocityInView(view)
+        if velocity.y > 0 {
+            view.endEditing(true)
+        }
+    }
     
     
     @IBAction func sendVerifyCodeButtonPressed(sender: DesignableButton) {
@@ -55,6 +61,7 @@ class MADRegisterViewController: UIViewController {
             let newSendButtonFrame = CGRectMake(vTextFieldFrame.maxX + 8, sendButtonFrame.origin.y, sendButtonFrame.width - 8 - vTextFieldFrame.width, sendButtonFrame.height)
             
             verifyCodeTextField = newTextField(withPlaceHolder: "验证码")
+            verifyCodeTextField?.keyboardType = .NumberPad
             verifyCodeTextField?.frame = CGRectMake(vTextFieldFrame.origin.x, vTextFieldFrame.origin.y, 0, vTextFieldFrame.height)
             view.addSubview(verifyCodeTextField!)
             MZAnim.move(object: verifyCodeTextField!, destPoint: CGPointMake(vTextFieldFrame.midX, vTextFieldFrame.midY))
@@ -84,6 +91,7 @@ class MADRegisterViewController: UIViewController {
             
             //pwd1
             pwd1TextField = newTextField(withPlaceHolder: "请输入密码")
+            pwd1TextField?.secureTextEntry = true
             pwd1TextField?.frame = CGRectMake(verifyCodeTextField!.frame.origin.x, verifyCodeTextField!.frame.origin.y, tfSize.width, 1)
             view.addSubview(pwd1TextField!)
             let centerY4pwd1 = centerY4name + tfSize.height + 8
@@ -92,6 +100,7 @@ class MADRegisterViewController: UIViewController {
             
             //pwd2
             pwd2TextField = newTextField(withPlaceHolder: "再次输入密码")
+            pwd2TextField?.secureTextEntry = true
             pwd2TextField?.frame = CGRectMake(verifyCodeTextField!.frame.origin.x, verifyCodeTextField!.frame.origin.y, tfSize.width, 1)
             view.addSubview(pwd2TextField!)
             let centerY4pwd2 = centerY4pwd1 + tfSize.height + 8
