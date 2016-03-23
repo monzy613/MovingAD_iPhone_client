@@ -20,6 +20,7 @@ class MADLoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func loginButtonPressed(sender: DesignableButton) {
         print("loginButtonPressed")
         if let account = accountTextField.text, password = passwordTextField.text {
+            performSegueWithIdentifier("LoginSuccessSegue", sender: self)
             MADNetwork.Post(url: URL.login,
                             parameters: ["account": account, "password": password],
                             onSuccess: {
@@ -56,8 +57,8 @@ class MADLoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     func initObservers() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardDidShow:", name: UIKeyboardDidShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MADLoginViewController.keyboardDidShow(_:)), name: UIKeyboardDidShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MADLoginViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
     }
     
     func keyboardDidShow(notif: NSNotification) {

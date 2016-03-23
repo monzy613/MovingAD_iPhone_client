@@ -53,6 +53,11 @@
 		F4ECFF421C9EBFD40023DBF8 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ECFF411C9EBFD40023DBF8 /* SwiftyJSON.swift */; };
 		F4ECFF731C9EC0310023DBF8 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4ECFF661C9EC0250023DBF8 /* Alamofire.framework */; };
 		F4ECFF741C9EC0310023DBF8 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F4ECFF661C9EC0250023DBF8 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F4FBF0651CA2DB290071CE11 /* MADDriverInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FBF0641CA2DB290071CE11 /* MADDriverInfoViewController.swift */; };
+		F4FBF0731CA2EB110071CE11 /* MADUploadLicenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FBF0721CA2EB110071CE11 /* MADUploadLicenceViewController.swift */; };
+		F4FBF0751CA2EE0B0071CE11 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FBF0741CA2EE0B0071CE11 /* ViewController.swift */; };
+		F4FBF0771CA2EE230071CE11 /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FBF0761CA2EE230071CE11 /* Definitions.swift */; };
+		F4FBF0791CA2F4FF0071CE11 /* MADHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FBF0781CA2F4FF0071CE11 /* MADHomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -233,6 +238,11 @@
 		F4ECFF231C9EBF960023DBF8 /* UnwindSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnwindSegue.swift; sourceTree = "<group>"; };
 		F4ECFF411C9EBFD40023DBF8 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		F4ECFF5B1C9EC0250023DBF8 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = SOURCE_ROOT; };
+		F4FBF0641CA2DB290071CE11 /* MADDriverInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MADDriverInfoViewController.swift; sourceTree = "<group>"; };
+		F4FBF0721CA2EB110071CE11 /* MADUploadLicenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MADUploadLicenceViewController.swift; sourceTree = "<group>"; };
+		F4FBF0741CA2EE0B0071CE11 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F4FBF0761CA2EE230071CE11 /* Definitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Definitions.swift; sourceTree = "<group>"; };
+		F4FBF0781CA2F4FF0071CE11 /* MADHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MADHomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,6 +273,17 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		F49E8DC31CA19890006EF5F9 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				F4FBF0761CA2EE230071CE11 /* Definitions.swift */,
+				F48092D21C9EFCA800A0046A /* URLs.swift */,
+				F48092D41C9EFD2600A0046A /* NetworkUtil.swift */,
+				F46EDB501C9FDAD6007E119D /* Animation.swift */,
+			);
+			name = Tools;
+			sourceTree = "<group>";
+		};
 		F4ECFEE31C9EBECA0023DBF8 = {
 			isa = PBXGroup;
 			children = (
@@ -284,15 +305,11 @@
 			isa = PBXGroup;
 			children = (
 				F4ECFF041C9EBF800023DBF8 /* ThirdLibraries */,
+				F49E8DC31CA19890006EF5F9 /* Tools */,
 				F4ECFF011C9EBF170023DBF8 /* ViewControllers */,
-				F4ECFEEF1C9EBECA0023DBF8 /* AppDelegate.swift */,
-				F48092D21C9EFCA800A0046A /* URLs.swift */,
-				F48092D41C9EFD2600A0046A /* NetworkUtil.swift */,
-				F46EDB501C9FDAD6007E119D /* Animation.swift */,
 				F4ECFEF31C9EBECA0023DBF8 /* Main.storyboard */,
-				F4ECFEF81C9EBECA0023DBF8 /* LaunchScreen.storyboard */,
 				F4ECFEF61C9EBECA0023DBF8 /* Assets.xcassets */,
-				F4ECFEFB1C9EBECA0023DBF8 /* Info.plist */,
+				F4FBF07A1CA2F52B0071CE11 /* SupportingFiles */,
 			);
 			path = MovingAD_iPhone_client;
 			sourceTree = "<group>";
@@ -300,8 +317,12 @@
 		F4ECFF011C9EBF170023DBF8 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F4FBF0741CA2EE0B0071CE11 /* ViewController.swift */,
 				F4ECFF021C9EBF4F0023DBF8 /* MADLoginViewController.swift */,
 				F48092D01C9EF77D00A0046A /* MADRegisterViewController.swift */,
+				F4FBF0641CA2DB290071CE11 /* MADDriverInfoViewController.swift */,
+				F4FBF0721CA2EB110071CE11 /* MADUploadLicenceViewController.swift */,
+				F4FBF0781CA2F4FF0071CE11 /* MADHomeViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -368,6 +389,16 @@
 				F4ECFF721C9EC0250023DBF8 /* Alamofire.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		F4FBF07A1CA2F52B0071CE11 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				F4ECFEF81C9EBECA0023DBF8 /* LaunchScreen.storyboard */,
+				F4ECFEEF1C9EBECA0023DBF8 /* AppDelegate.swift */,
+				F4ECFEFB1C9EBECA0023DBF8 /* Info.plist */,
+			);
+			name = SupportingFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -562,10 +593,12 @@
 				F4ECFF2F1C9EBF960023DBF8 /* ImageLoader.swift in Sources */,
 				F4ECFF341C9EBF960023DBF8 /* Misc.swift in Sources */,
 				F4ECFF421C9EBFD40023DBF8 /* SwiftyJSON.swift in Sources */,
+				F4FBF0791CA2F4FF0071CE11 /* MADHomeViewController.swift in Sources */,
 				F4ECFF291C9EBF960023DBF8 /* DesignableImageView.swift in Sources */,
 				F4ECFF391C9EBF960023DBF8 /* SpringImageView.swift in Sources */,
 				F4ECFEF01C9EBECA0023DBF8 /* AppDelegate.swift in Sources */,
 				F4ECFF351C9EBF960023DBF8 /* SoundPlayer.swift in Sources */,
+				F4FBF0771CA2EE230071CE11 /* Definitions.swift in Sources */,
 				F4ECFF3C1C9EBF960023DBF8 /* SpringTextView.swift in Sources */,
 				F4ECFF031C9EBF4F0023DBF8 /* MADLoginViewController.swift in Sources */,
 				F4ECFF2E1C9EBF960023DBF8 /* DesignableView.swift in Sources */,
@@ -579,12 +612,15 @@
 				F4ECFF2C1C9EBF960023DBF8 /* DesignableTextField.swift in Sources */,
 				F4ECFF241C9EBF960023DBF8 /* AsyncButton.swift in Sources */,
 				F4ECFF311C9EBF960023DBF8 /* KeyboardLayoutConstraint.swift in Sources */,
+				F4FBF0751CA2EE0B0071CE11 /* ViewController.swift in Sources */,
 				F4ECFF381C9EBF960023DBF8 /* SpringButton.swift in Sources */,
 				F4ECFF251C9EBF960023DBF8 /* AsyncImageView.swift in Sources */,
 				F418B6B71CA01FD100CA7581 /* UIColorExtension.swift in Sources */,
 				F4ECFF2B1C9EBF960023DBF8 /* DesignableTabBarController.swift in Sources */,
 				F4ECFF261C9EBF960023DBF8 /* AutoTextView.swift in Sources */,
 				F48092D31C9EFCA800A0046A /* URLs.swift in Sources */,
+				F4FBF0651CA2DB290071CE11 /* MADDriverInfoViewController.swift in Sources */,
+				F4FBF0731CA2EB110071CE11 /* MADUploadLicenceViewController.swift in Sources */,
 				F4ECFF2D1C9EBF960023DBF8 /* DesignableTextView.swift in Sources */,
 				F4ECFF2A1C9EBF960023DBF8 /* DesignableLabel.swift in Sources */,
 				F48092D51C9EFD2600A0046A /* NetworkUtil.swift in Sources */,
@@ -723,6 +759,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = MovingAD_iPhone_client/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Monzy.Zhang.MovingAD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -735,6 +772,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = MovingAD_iPhone_client/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Monzy.Zhang.MovingAD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
