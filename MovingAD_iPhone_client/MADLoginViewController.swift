@@ -8,8 +8,20 @@
 
 import UIKit
 
+extension MBProgressHUD {
+    class func validationHUD(withView view: UIView, text: String) {
+        let hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
+        hud.mode = .Text
+        hud.label.text = text
+        hud.hideAnimated(true, afterDelay: 1.0)
+    }
+}
+
 class MADLoginViewController: UIViewController, UITextFieldDelegate {
     var loginViewOriginCenter: CGPoint?
+    
+    //hud
+    var hud: MBProgressHUD?
     
     @IBOutlet weak var loginViewCenterYConstraint: NSLayoutConstraint!
     @IBOutlet weak var loginView: DesignableView!
@@ -18,16 +30,33 @@ class MADLoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var loginButton: DesignableButton!
     @IBAction func loginButtonPressed(sender: DesignableButton) {
-        if let account = accountTextField.text, password = passwordTextField.text {
+        let account = accountTextField.text
+        let password = passwordTextField.text
+        let phoneNumberValidation = MADInputValidation.phoneNumber(phonenumber: account)
+        let passwordValidation = MADInputValidation.password(pwd: password)
+        
+        if account != nil {
+      //if phoneNumberValication == .Valid && passwordValidation == .Valid {
+            hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
+            hud!.mode = .Indeterminate
+            hud?.label.text = "登录中"
             MADNetwork.Post(url: MADURL.login,
-                            parameters: ["account": account, "password": password],
+                            parameters: [
+                                MADURL.param.account: account!,
+                                MADURL.param.password: password!],
                             onSuccess: {
                                 print("login success")
+                                self.hud?.hideAnimated(true)
                                 self.performSegueWithIdentifier("LoginSuccessSegue", sender: self)
                             },
                             onFailure: {
+                                self.hud?.mode = .Text
+                                self.hud!.label.text = "登录失败"
+                                self.hud?.hideAnimated(true, afterDelay: 1)
                                 print("login failed")
                             })
+        } else {
+            MBProgressHUD.validationHUD(withView: view, text: "请输入正确手机号和密码")
         }
     }
     

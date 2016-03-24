@@ -17,6 +17,7 @@ let transferCharacteristicUUID = CBUUID(string: TRANSFER_CHARACTERISTIC_UUID)
 
 struct MADSegues {
     static let loginSuccess = "LoginSuccessSegue"
+    static let registerSuccess = "RegisterSuccessSegue"
 }
 
 struct MADDataKeys {

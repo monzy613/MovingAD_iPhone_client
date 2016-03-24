@@ -8,6 +8,22 @@
 
 import UIKit
 
+
+extension MBProgressHUD {
+    func hideHUD(withText text: String, andDelay delay: NSTimeInterval) {
+        self.mode = .Text
+        self.label.text = text
+        self.hideAnimated(true, afterDelay: delay)
+    }
+    
+    static func madLoading(inView view: UIView, withText text: String) -> MBProgressHUD {
+        let hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
+        hud.mode = .Indeterminate
+        hud.label.text = text
+        return hud
+    }
+}
+
 enum RegisterState {
     case PhoneNumber
     case VerifyCode
@@ -21,6 +37,7 @@ class MADRegisterViewController: UIViewController {
     var verifyCodeTimer: NSTimer?
     var verifyCodeTimeLeft = maxTime
     
+    var hud: MBProgressHUD?
     @IBOutlet weak var mobileTextField: DesignableTextField!
     @IBOutlet weak var sendVerifyCodeButton: DesignableButton!
     @IBOutlet weak var sendButtonWidthConstraint: NSLayoutConstraint!
@@ -53,70 +70,121 @@ class MADRegisterViewController: UIViewController {
     
     
     @IBAction func sendVerifyCodeButtonPressed(sender: DesignableButton) {
+        let phoneNumber = mobileTextField.text
         switch currentState {
         case .PhoneNumber:
-            //make verify code text field
-            let sendButtonFrame = sendVerifyCodeButton.frame
-            let vTextFieldFrame = CGRectMake(sendButtonFrame.origin.x, sendButtonFrame.origin.y, sendButtonFrame.width * 0.3, sendButtonFrame.height)
-            let newSendButtonFrame = CGRectMake(vTextFieldFrame.maxX + 8, sendButtonFrame.origin.y, sendButtonFrame.width - 8 - vTextFieldFrame.width, sendButtonFrame.height)
-            
-            verifyCodeTextField = newTextField(withPlaceHolder: "验证码")
-            verifyCodeTextField?.keyboardType = .NumberPad
-            verifyCodeTextField?.frame = CGRectMake(vTextFieldFrame.origin.x, vTextFieldFrame.origin.y, 0, vTextFieldFrame.height)
-            view.addSubview(verifyCodeTextField!)
-            MZAnim.move(object: verifyCodeTextField!, destPoint: CGPointMake(vTextFieldFrame.midX, vTextFieldFrame.midY))
-            MZAnim.size(object: verifyCodeTextField!, destSize: vTextFieldFrame.size)
-            MZAnim.animConstraint(constraint: sendButtonWidthConstraint, destConstant: Float(newSendButtonFrame.width - sendButtonFrame.width))
-            currentState = .VerifyCode
-            //show recend button
-            resendVerifyCodeButton.hidden = false
-            resendVerifyCodeButton.setTitle("\(verifyCodeTimeLeft)", forState: .Normal)
-            startTiming()
+            let validationResult = MADInputValidation.phoneNumber(phonenumber: phoneNumber)
+            if validationResult != .Valid {
+                MBProgressHUD.validationHUD(withView: view, text: validationResult.rawValue)
+                break
+            }
+            hud = MBProgressHUD.madLoading(inView: view, withText: "发送中")
+            MADNetwork.Post(url: MADURL.registerPhone, parameters: [
+                MADURL.param.account: phoneNumber!
+                ], onSuccess: {
+                    
+                    //make verify code text field
+                    let sendButtonFrame = self.sendVerifyCodeButton.frame
+                    let vTextFieldFrame = CGRectMake(sendButtonFrame.origin.x, sendButtonFrame.origin.y, sendButtonFrame.width * 0.3, sendButtonFrame.height)
+                    let newSendButtonFrame = CGRectMake(vTextFieldFrame.maxX + 8, sendButtonFrame.origin.y, sendButtonFrame.width - 8 - vTextFieldFrame.width, sendButtonFrame.height)
+                    
+                    self.verifyCodeTextField = self.newTextField(withPlaceHolder: "验证码")
+                    self.verifyCodeTextField?.keyboardType = .NumberPad
+                    self.verifyCodeTextField?.frame = CGRectMake(vTextFieldFrame.origin.x, vTextFieldFrame.origin.y, 0, vTextFieldFrame.height)
+                    self.view.addSubview(self.verifyCodeTextField!)
+                    MZAnim.move(object: self.verifyCodeTextField!, destPoint: CGPointMake(vTextFieldFrame.midX, vTextFieldFrame.midY))
+                    MZAnim.size(object: self.verifyCodeTextField!, destSize: vTextFieldFrame.size)
+                    MZAnim.animConstraint(constraint: self.sendButtonWidthConstraint, destConstant: Float(newSendButtonFrame.width - sendButtonFrame.width))
+                    self.currentState = .VerifyCode
+                    //show recend button
+                    self.resendVerifyCodeButton.hidden = false
+                    self.resendVerifyCodeButton.setTitle("\(self.verifyCodeTimeLeft)", forState: .Normal)
+                    
+                    self.hud?.hideHUD(withText: "验证码已发送", andDelay: 0.3)
+                    self.startTiming()
+                }, onFailure: {
+                    self.hud?.hideHUD(withText: "发生了点问题", andDelay: 1.0)
+            })
             break
         case .VerifyCode:
             //send verify code
-            
-            //if success, make name, pwd1, pwd2 textFields
-            resendVerifyCodeButton.hidden = true
-            let tfSize = mobileTextField.frame.size
-            let centerX = mobileTextField.frame.midX
-            
-            //name
-            nameTextField = newTextField(withPlaceHolder: "姓名")
-            nameTextField?.frame = CGRectMake(verifyCodeTextField!.frame.origin.x, verifyCodeTextField!.frame.origin.y, tfSize.width, 1)
-            view.addSubview(nameTextField!)
-            let centerY4name = (nameTextField?.frame.origin.y)! + tfSize.height / 2
-            MZAnim.move(object: nameTextField!, destPoint: CGPointMake(centerX, centerY4name))
-            MZAnim.size(object: nameTextField!, destSize: tfSize)
-            
-            //pwd1
-            pwd1TextField = newTextField(withPlaceHolder: "请输入密码")
-            pwd1TextField?.secureTextEntry = true
-            pwd1TextField?.frame = CGRectMake(verifyCodeTextField!.frame.origin.x, verifyCodeTextField!.frame.origin.y, tfSize.width, 1)
-            view.addSubview(pwd1TextField!)
-            let centerY4pwd1 = centerY4name + tfSize.height + 8
-            MZAnim.move(object: pwd1TextField!, destPoint: CGPointMake(centerX, centerY4pwd1))
-            MZAnim.size(object: pwd1TextField!, destSize: tfSize)
-            
-            //pwd2
-            pwd2TextField = newTextField(withPlaceHolder: "再次输入密码")
-            pwd2TextField?.secureTextEntry = true
-            pwd2TextField?.frame = CGRectMake(verifyCodeTextField!.frame.origin.x, verifyCodeTextField!.frame.origin.y, tfSize.width, 1)
-            view.addSubview(pwd2TextField!)
-            let centerY4pwd2 = centerY4pwd1 + tfSize.height + 8
-            MZAnim.move(object: pwd2TextField!, destPoint: CGPointMake(centerX, centerY4pwd2))
-            MZAnim.size(object: pwd2TextField!, destSize: tfSize)
-            //animations
-            verifyCodeTextField?.frame = CGRect.zero
-            verifyCodeTextField?.removeFromSuperview()
-            let sendButtonTopConstant: Float = 8 * 4 + Float(tfSize.height) * 3
-            MZAnim.animConstraint(constraint: sendButtonTopConstraint, destConstant: sendButtonTopConstant)
-            MZAnim.animConstraint(constraint: sendButtonWidthConstraint, destConstant: 0)
-            currentState = .UserInfo
-            sendVerifyCodeButton.setTitle("注册", forState: .Normal)
-            sendVerifyCodeButton.backgroundColor = UIColor(hex6: 0x00D000)
+            let verifyCode = verifyCodeTextField?.text
+            let validationResult = MADInputValidation.verifyNumber(verifyNumber: verifyCode)
+            if validationResult != .Valid {
+                MBProgressHUD.validationHUD(withView: view, text: validationResult.rawValue)
+                break
+            }
+            hud = MBProgressHUD.madLoading(inView: view, withText: "发送中")
+            MADNetwork.Post(url: MADURL.registerVerify, parameters: [
+                MADURL.param.account: phoneNumber!,
+                MADURL.param.verifyNumber: verifyCode!
+                ], onSuccess: {
+                    //if success, make name, pwd1, pwd2 textFields
+                    self.resendVerifyCodeButton.hidden = true
+                    let tfSize = self.mobileTextField.frame.size
+                    let centerX = self.mobileTextField.frame.midX
+                    
+                    //name
+                    self.nameTextField = self.newTextField(withPlaceHolder: "姓名")
+                    self.nameTextField?.frame = CGRectMake(self.verifyCodeTextField!.frame.origin.x, self.verifyCodeTextField!.frame.origin.y, tfSize.width, 1)
+                    self.view.addSubview(self.nameTextField!)
+                    let centerY4name = (self.nameTextField?.frame.origin.y)! + tfSize.height / 2
+                    MZAnim.move(object: self.nameTextField!, destPoint: CGPointMake(centerX, centerY4name))
+                    MZAnim.size(object: self.nameTextField!, destSize: tfSize)
+                    
+                    //pwd1
+                    self.pwd1TextField = self.newTextField(withPlaceHolder: "请输入密码")
+                    self.pwd1TextField?.secureTextEntry = true
+                    self.pwd1TextField?.frame = CGRectMake(self.verifyCodeTextField!.frame.origin.x, self.verifyCodeTextField!.frame.origin.y, tfSize.width, 1)
+                    self.view.addSubview(self.pwd1TextField!)
+                    let centerY4pwd1 = centerY4name + tfSize.height + 8
+                    MZAnim.move(object: self.pwd1TextField!, destPoint: CGPointMake(centerX, centerY4pwd1))
+                    MZAnim.size(object: self.pwd1TextField!, destSize: tfSize)
+                    
+                    //pwd2
+                    self.pwd2TextField = self.newTextField(withPlaceHolder: "再次输入密码")
+                    self.pwd2TextField?.secureTextEntry = true
+                    self.pwd2TextField?.frame = CGRectMake(self.verifyCodeTextField!.frame.origin.x, self.verifyCodeTextField!.frame.origin.y, tfSize.width, 1)
+                    self.view.addSubview(self.pwd2TextField!)
+                    let centerY4pwd2 = centerY4pwd1 + tfSize.height + 8
+                    MZAnim.move(object: self.pwd2TextField!, destPoint: CGPointMake(centerX, centerY4pwd2))
+                    MZAnim.size(object: self.pwd2TextField!, destSize: tfSize)
+                    //animations
+                    self.verifyCodeTextField?.frame = CGRect.zero
+                    self.verifyCodeTextField?.removeFromSuperview()
+                    let sendButtonTopConstant: Float = 8 * 4 + Float(tfSize.height) * 3
+                    MZAnim.animConstraint(constraint: self.sendButtonTopConstraint, destConstant: sendButtonTopConstant)
+                    MZAnim.animConstraint(constraint: self.sendButtonWidthConstraint, destConstant: 0)
+                    self.currentState = .UserInfo
+                    self.sendVerifyCodeButton.setTitle("注册", forState: .Normal)
+                    self.sendVerifyCodeButton.backgroundColor = UIColor(hex6: 0x00D000)
+                    self.mobileTextField.enabled = false
+                    self.hud?.hideHUD(withText: "验证成功", andDelay: 0.3)
+                }, onFailure: {
+                    self.hud?.hideHUD(withText: "验证失败", andDelay: 1.0)
+            })
             break
         case .UserInfo:
+            let name = nameTextField?.text
+            let pwd1 = pwd1TextField?.text
+            let pwd2 = pwd2TextField?.text
+            let validationResult = MADInputValidation.password(pwd1: pwd1, pwd2: pwd2)
+            
+            if validationResult != .Valid {
+                MBProgressHUD.validationHUD(withView: view, text: validationResult.rawValue)
+                break
+            }
+            hud = MBProgressHUD.madLoading(inView: view, withText: "注册中")
+            MADNetwork.Post(url: MADURL.register, parameters: [
+                MADURL.param.account: phoneNumber!,
+                MADURL.param.name: name ?? "defaultName",
+                MADURL.param.password: pwd1!
+                ], onSuccess: {
+                    self.hud?.hideHUD(withText: "注册成功", andDelay: 0.3)
+                    self.performSegueWithIdentifier(MADSegues.registerSuccess, sender: self)
+                }, onFailure: {
+                    self.hud?.hideHUD(withText: "注册失败", andDelay: 1.0)
+            })
             break
         }
     }
@@ -136,7 +204,7 @@ class MADRegisterViewController: UIViewController {
     }
     
     func startTiming() {
-        verifyCodeTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "verifyCodeTiming", userInfo: nil, repeats: true)
+        verifyCodeTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(MADRegisterViewController.verifyCodeTiming), userInfo: nil, repeats: true)
     }
     
     func verifyCodeTiming() {

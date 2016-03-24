@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		F418B6B71CA01FD100CA7581 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F418B6B61CA01FD100CA7581 /* UIColorExtension.swift */; };
+		F422EC371CA3B63200E053D7 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F422EC361CA3B63200E053D7 /* TestViewController.swift */; };
+		F422EC451CA3B68200E053D7 /* MZLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F422EC441CA3B68200E053D7 /* MZLoadingView.swift */; };
+		F422EC491CA3C49000E053D7 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F422EC481CA3C49000E053D7 /* MBProgressHUD.m */; };
 		F425157F1C9F0E2700D9B2D1 /* MZToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F425157E1C9F0E2700D9B2D1 /* MZToastView.swift */; };
 		F46EDB511C9FDAD6007E119D /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46EDB501C9FDAD6007E119D /* Animation.swift */; };
 		F46EDB591C9FDB1B007E119D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F46EDB581C9FDB1B007E119D /* CoreGraphics.framework */; };
@@ -54,6 +57,7 @@
 		F4ECFF421C9EBFD40023DBF8 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ECFF411C9EBFD40023DBF8 /* SwiftyJSON.swift */; };
 		F4ECFF731C9EC0310023DBF8 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4ECFF661C9EC0250023DBF8 /* Alamofire.framework */; };
 		F4ECFF741C9EC0310023DBF8 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F4ECFF661C9EC0250023DBF8 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F4EF90A41CA40AB000711D23 /* MADInputValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EF90A31CA40AB000711D23 /* MADInputValidation.swift */; };
 		F4FBF0651CA2DB290071CE11 /* MADDriverInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FBF0641CA2DB290071CE11 /* MADDriverInfoViewController.swift */; };
 		F4FBF0731CA2EB110071CE11 /* MADUploadLicenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FBF0721CA2EB110071CE11 /* MADUploadLicenceViewController.swift */; };
 		F4FBF0751CA2EE0B0071CE11 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FBF0741CA2EE0B0071CE11 /* ViewController.swift */; };
@@ -193,6 +197,11 @@
 
 /* Begin PBXFileReference section */
 		F418B6B61CA01FD100CA7581 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		F422EC361CA3B63200E053D7 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		F422EC441CA3B68200E053D7 /* MZLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MZLoadingView.swift; sourceTree = "<group>"; };
+		F422EC461CA3C49000E053D7 /* MovingAD_iPhone_client-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MovingAD_iPhone_client-Bridging-Header.h"; sourceTree = "<group>"; };
+		F422EC471CA3C49000E053D7 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		F422EC481CA3C49000E053D7 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		F425157E1C9F0E2700D9B2D1 /* MZToastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MZToastView.swift; sourceTree = "<group>"; };
 		F46EDB501C9FDAD6007E119D /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		F46EDB581C9FDB1B007E119D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -240,6 +249,8 @@
 		F4ECFF231C9EBF960023DBF8 /* UnwindSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnwindSegue.swift; sourceTree = "<group>"; };
 		F4ECFF411C9EBFD40023DBF8 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		F4ECFF5B1C9EC0250023DBF8 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = SOURCE_ROOT; };
+		F4EF90A31CA40AB000711D23 /* MADInputValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MADInputValidation.swift; sourceTree = "<group>"; };
+		F4EF90B11CA4195300711D23 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		F4FBF0641CA2DB290071CE11 /* MADDriverInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MADDriverInfoViewController.swift; sourceTree = "<group>"; };
 		F4FBF0721CA2EB110071CE11 /* MADUploadLicenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MADUploadLicenceViewController.swift; sourceTree = "<group>"; };
 		F4FBF0741CA2EE0B0071CE11 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -283,6 +294,7 @@
 				F48092D41C9EFD2600A0046A /* NetworkUtil.swift */,
 				F46EDB501C9FDAD6007E119D /* Animation.swift */,
 				F4D8B4611CA36933000F4FA3 /* MADDataStorage.swift */,
+				F4EF90A31CA40AB000711D23 /* MADInputValidation.swift */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -319,6 +331,8 @@
 				F49E8DC31CA19890006EF5F9 /* Tools */,
 				F4ECFF011C9EBF170023DBF8 /* ViewControllers */,
 				F4ECFEF31C9EBECA0023DBF8 /* Main.storyboard */,
+				F422EC441CA3B68200E053D7 /* MZLoadingView.swift */,
+				F422EC361CA3B63200E053D7 /* TestViewController.swift */,
 				F4ECFEF61C9EBECA0023DBF8 /* Assets.xcassets */,
 				F4FBF07A1CA2F52B0071CE11 /* SupportingFiles */,
 			);
@@ -341,12 +355,15 @@
 		F4ECFF041C9EBF800023DBF8 /* ThirdLibraries */ = {
 			isa = PBXGroup;
 			children = (
+				F422EC471CA3C49000E053D7 /* MBProgressHUD.h */,
+				F422EC481CA3C49000E053D7 /* MBProgressHUD.m */,
 				F4ECFF051C9EBF960023DBF8 /* Spring */,
 				F4ECFF5B1C9EC0250023DBF8 /* Alamofire.xcodeproj */,
 				F46EDB5A1C9FDFD5007E119D /* pop.xcodeproj */,
 				F4ECFF411C9EBFD40023DBF8 /* SwiftyJSON.swift */,
 				F425157E1C9F0E2700D9B2D1 /* MZToastView.swift */,
 				F418B6B61CA01FD100CA7581 /* UIColorExtension.swift */,
+				F422EC461CA3C49000E053D7 /* MovingAD_iPhone_client-Bridging-Header.h */,
 			);
 			name = ThirdLibraries;
 			sourceTree = "<group>";
@@ -408,6 +425,7 @@
 				F4ECFEF81C9EBECA0023DBF8 /* LaunchScreen.storyboard */,
 				F4ECFEEF1C9EBECA0023DBF8 /* AppDelegate.swift */,
 				F4ECFEFB1C9EBECA0023DBF8 /* Info.plist */,
+				F4EF90B11CA4195300711D23 /* MyPlayground.playground */,
 			);
 			name = SupportingFiles;
 			sourceTree = "<group>";
@@ -602,11 +620,13 @@
 			files = (
 				F4ECFF3A1C9EBF960023DBF8 /* SpringLabel.swift in Sources */,
 				F4ECFF2F1C9EBF960023DBF8 /* ImageLoader.swift in Sources */,
+				F422EC451CA3B68200E053D7 /* MZLoadingView.swift in Sources */,
 				F4D8B4621CA36933000F4FA3 /* MADDataStorage.swift in Sources */,
 				F4ECFF341C9EBF960023DBF8 /* Misc.swift in Sources */,
 				F4ECFF421C9EBFD40023DBF8 /* SwiftyJSON.swift in Sources */,
 				F4FBF0791CA2F4FF0071CE11 /* MADHomeViewController.swift in Sources */,
 				F4ECFF291C9EBF960023DBF8 /* DesignableImageView.swift in Sources */,
+				F422EC371CA3B63200E053D7 /* TestViewController.swift in Sources */,
 				F4ECFF391C9EBF960023DBF8 /* SpringImageView.swift in Sources */,
 				F4ECFEF01C9EBECA0023DBF8 /* AppDelegate.swift in Sources */,
 				F4ECFF351C9EBF960023DBF8 /* SoundPlayer.swift in Sources */,
@@ -620,6 +640,7 @@
 				F4ECFF3B1C9EBF960023DBF8 /* SpringTextField.swift in Sources */,
 				F48092D11C9EF77D00A0046A /* MADRegisterViewController.swift in Sources */,
 				F4ECFF281C9EBF960023DBF8 /* DesignableButton.swift in Sources */,
+				F422EC491CA3C49000E053D7 /* MBProgressHUD.m in Sources */,
 				F425157F1C9F0E2700D9B2D1 /* MZToastView.swift in Sources */,
 				F4ECFF2C1C9EBF960023DBF8 /* DesignableTextField.swift in Sources */,
 				F4ECFF241C9EBF960023DBF8 /* AsyncButton.swift in Sources */,
@@ -641,6 +662,7 @@
 				F4ECFF271C9EBF960023DBF8 /* BlurView.swift in Sources */,
 				F4ECFF3D1C9EBF960023DBF8 /* SpringView.swift in Sources */,
 				F46EDB511C9FDAD6007E119D /* Animation.swift in Sources */,
+				F4EF90A41CA40AB000711D23 /* MADInputValidation.swift in Sources */,
 				F4ECFF3F1C9EBF960023DBF8 /* TransitionZoom.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -769,12 +791,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = MovingAD_iPhone_client/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Monzy.Zhang.MovingAD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MovingAD_iPhone_client/MovingAD_iPhone_client-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -782,12 +807,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = MovingAD_iPhone_client/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Monzy.Zhang.MovingAD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MovingAD_iPhone_client/MovingAD_iPhone_client-Bridging-Header.h";
 			};
 			name = Release;
 		};

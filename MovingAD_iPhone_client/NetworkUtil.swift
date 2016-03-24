@@ -16,6 +16,7 @@ class MADNetwork {
             let json = JSON(response.result.value ?? [])
             if let err = response.result.error {
                 print("error: \(err)")
+                onFailure()
             }
             switch url {
             case MADURL.login:
@@ -28,7 +29,13 @@ class MADNetwork {
                         print(error)
                     }
                 }
-                break
+            case MADURL.registerPhone, MADURL.registerVerify, MADURL.register:
+                if let success = json["success"].string {
+                    print("\(url) success: \(success)")
+                    onSuccess()
+                } else {
+                    onFailure()
+                }
             default:
                 break
             }

@@ -13,10 +13,21 @@ class MADURL {
     
     
     // Mark urls
-    static let domain = "180.161.180.134:3000"
+    static let domain = "180.161.160.22:3000"
     static let baseURL = "http://\(MADURL.domain)"
     static let login = "\(MADURL.baseURL)/login"
+    
+    static let registerPhone = "\(MADURL.baseURL)/registerPhone"
+    static let registerVerify = "\(MADURL.baseURL)/registerVerify"
     static let register = "\(MADURL.baseURL)/register"
+    //parameters
+    class param {
+        static let account = "account"
+        static let password = "password"
+        static let verifyNumber = "verifyNumber"
+        static let name = "name"
+        static let gender = "gender"
+    }
 }
 
 /*
