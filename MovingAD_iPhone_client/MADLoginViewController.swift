@@ -18,13 +18,12 @@ class MADLoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var loginButton: DesignableButton!
     @IBAction func loginButtonPressed(sender: DesignableButton) {
-        print("loginButtonPressed")
         if let account = accountTextField.text, password = passwordTextField.text {
-            performSegueWithIdentifier("LoginSuccessSegue", sender: self)
-            MADNetwork.Post(url: URL.login,
+            MADNetwork.Post(url: MADURL.login,
                             parameters: ["account": account, "password": password],
                             onSuccess: {
                                 print("login success")
+                                self.performSegueWithIdentifier("LoginSuccessSegue", sender: self)
                             },
                             onFailure: {
                                 print("login failed")

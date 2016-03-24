@@ -11,8 +11,6 @@ import UIKit
 class MADDriverInfoViewController: UIViewController {
     
     // Mark iboutlets
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var nameTextField: DesignableTextField!
     @IBOutlet weak var identityLabel: UILabel!

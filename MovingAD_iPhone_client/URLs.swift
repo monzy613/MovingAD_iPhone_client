@@ -8,10 +8,15 @@
 
 import Foundation
 
-class URL {
-    static let baseURL = ""
-    static let login = "\(URL.baseURL)/login"
-    static let register = "\(URL.baseURL)/register"
+class MADURL {
+    // Mark parapeters
+    
+    
+    // Mark urls
+    static let domain = "180.161.180.134:3000"
+    static let baseURL = "http://\(MADURL.domain)"
+    static let login = "\(MADURL.baseURL)/login"
+    static let register = "\(MADURL.baseURL)/register"
 }
 
 /*

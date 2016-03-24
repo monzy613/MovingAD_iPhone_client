@@ -233,8 +233,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="launchscreen" translatesAutoresizingMaskIntoConstraints="NO" id="3db-Z0-M8D">
-                                <rect key="frame" x="-1" y="1" width="375" height="667"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchscreen" translatesAutoresizingMaskIntoConstraints="NO" id="3db-Z0-M8D">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="3db-Z0-M8D" secondAttribute="height" multiplier="1:1" id="kJT-fa-f12"/>
                                 </constraints>
@@ -609,8 +609,8 @@
                                 </userDefinedRuntimeAttributes>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="mzz-B8-F62"/>
                                         <exclude reference="WKa-JP-j9j"/>
+                                        <exclude reference="mzz-B8-F62"/>
                                     </mask>
                                 </variation>
                             </textField>
@@ -934,6 +934,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Rd-MR-oeL" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="597.5" y="1513.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="E2W-bR-P0j">
+            <objects>
+                <viewController id="a6G-9c-Saw" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="D86-Id-fyE"/>
+                        <viewControllerLayoutGuide type="bottom" id="6Fh-Um-4C1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1jM-XJ-pVj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gKz-Jf-geu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1198.5" y="1507.5"/>
         </scene>
     </scenes>
     <resources>

@@ -14,3 +14,16 @@ let NOTIFY_MTU = 20
 
 let transferServiceUUID = CBUUID(string: TRANSFER_SERVICE_UUID)
 let transferCharacteristicUUID = CBUUID(string: TRANSFER_CHARACTERISTIC_UUID)
+
+struct MADSegues {
+    static let loginSuccess = "LoginSuccessSegue"
+}
+
+struct MADDataKeys {
+    static let loginPack = "AccountAndPassword"
+}
+
+enum MADDataKey: String {
+    case loginPack = "AccountAndPassword"
+    case userInfo = "UserInformations"
+}

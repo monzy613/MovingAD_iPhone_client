@@ -65,7 +65,7 @@ class ViewController: UIViewController, CBPeripheralManagerDelegate, CBCentralMa
     
     // centralManagerDelegate delegate methods
     func centralManagerDidUpdateState(central: CBCentralManager) {
-        print("\(__LINE__) \(__FUNCTION__)")
+        print("\(#line) \(#function)")
         
         if central.state != .PoweredOn {
             print("central powerOff")
@@ -363,8 +363,8 @@ class ViewController: UIViewController, CBPeripheralManagerDelegate, CBCentralMa
         // Do any additional setup after loading the view, typically from a nib.
         peripheralManager = CBPeripheralManager(delegate: self, queue: nil)
         centralManager = CBCentralManager(delegate: self, queue: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
     }
     
     func keyboardWillShow(notification: NSNotification) {
