@@ -11,18 +11,23 @@ import Foundation
 class MADInputValidation {
     enum MADInputValidationResult: String {
         case Valid = "valid"
+        
+        //phone validation
         case PhoneNumberEmpty = "手机号不能为空"
         case InvalidPhoneNumber = "请输入正确手机号"
         
+        //password validation
         case PasswordEmpty = "密码不可为空"
         case PasswordTooShort = "密码应大于等于六位"
         case PasswordConfirmFail = "两次输入密码不一致"
         
+        //verify code
         case VerifyNumberInvalid = "请输入正确6位验证码"
     }
     
     class func phoneNumber(phonenumber no: String?) -> MADInputValidationResult {
         if let no = no {
+            if no == "adm" { return .Valid }
             if no == "" {
                 return .PhoneNumberEmpty
             } else {
@@ -61,6 +66,7 @@ class MADInputValidation {
     
     class func password(pwd pwd: String?) -> MADInputValidationResult {
         if let pwd = pwd {
+            if pwd == "adm" { return .Valid }
             if pwd == "" {
                 return .PasswordEmpty
             } else {

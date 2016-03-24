@@ -35,8 +35,7 @@ class MADLoginViewController: UIViewController, UITextFieldDelegate {
         let phoneNumberValidation = MADInputValidation.phoneNumber(phonenumber: account)
         let passwordValidation = MADInputValidation.password(pwd: password)
         
-        if account != nil {
-      //if phoneNumberValication == .Valid && passwordValidation == .Valid {
+        if phoneNumberValidation == .Valid && passwordValidation == .Valid {
             hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
             hud!.mode = .Indeterminate
             hud?.label.text = "登录中"
