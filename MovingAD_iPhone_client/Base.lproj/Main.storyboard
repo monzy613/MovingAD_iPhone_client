@@ -338,6 +338,12 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1HD-Nv-IS0">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                            <connections>
+                                                <action selector="dismissKeyboard:" destination="PCh-Bf-iQR" eventType="touchUpInside" id="Y1T-Pd-ij0"/>
+                                            </connections>
+                                        </button>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="手机" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ahe-ra-d1w" customClass="DesignableTextField" customModule="MovingAD_iPhone_client" customModuleProvider="target">
                                             <rect key="frame" x="13" y="28" width="349" height="51"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -359,7 +365,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </textField>
                                         <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J0W-7o-Khn">
-                                            <rect key="frame" x="324" y="38.5" width="31" height="31"/>
+                                            <rect key="frame" x="324" y="38" width="31" height="31"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="J0W-7o-Khn" secondAttribute="height" multiplier="1:1" id="Mrk-7s-Zbb"/>
@@ -405,7 +411,7 @@
                                             <inset key="imageEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
                                             <state key="normal" title="back"/>
                                             <connections>
-                                                <segue destination="QWj-35-eHl" kind="unwind" unwindAction="unwindToViewController:" id="fxG-Pl-CN2"/>
+                                                <action selector="cancelButtonPressed:" destination="PCh-Bf-iQR" eventType="touchUpInside" id="KFS-4a-gxE"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -420,19 +426,20 @@
                                         <constraint firstAttribute="trailing" secondItem="J0W-7o-Khn" secondAttribute="trailing" constant="20" id="EiX-Pa-okm"/>
                                         <constraint firstItem="waf-oL-JFg" firstAttribute="top" secondItem="Ahe-ra-d1w" secondAttribute="bottom" constant="8" id="LX4-lM-bIK"/>
                                         <constraint firstItem="Ahe-ra-d1w" firstAttribute="leading" secondItem="X45-2n-u9I" secondAttribute="leadingMargin" constant="5" id="MMy-me-Mr7"/>
+                                        <constraint firstItem="1HD-Nv-IS0" firstAttribute="centerY" secondItem="X45-2n-u9I" secondAttribute="centerY" id="MeQ-k2-XE9"/>
+                                        <constraint firstItem="1HD-Nv-IS0" firstAttribute="width" secondItem="X45-2n-u9I" secondAttribute="width" id="R2u-pb-9ea"/>
+                                        <constraint firstItem="1HD-Nv-IS0" firstAttribute="centerX" secondItem="X45-2n-u9I" secondAttribute="centerX" id="TUT-bQ-OLM"/>
                                         <constraint firstItem="Ahe-ra-d1w" firstAttribute="top" secondItem="X45-2n-u9I" secondAttribute="topMargin" constant="20" id="aNG-Xt-Qgs"/>
                                         <constraint firstItem="waf-oL-JFg" firstAttribute="width" secondItem="Ahe-ra-d1w" secondAttribute="width" id="abP-7I-n42"/>
                                         <constraint firstAttribute="trailing" secondItem="waf-oL-JFg" secondAttribute="trailing" constant="13" id="dvY-Zj-itO"/>
                                         <constraint firstItem="J0W-7o-Khn" firstAttribute="centerY" secondItem="Ahe-ra-d1w" secondAttribute="centerY" id="eBg-tV-n4p"/>
+                                        <constraint firstItem="1HD-Nv-IS0" firstAttribute="height" secondItem="X45-2n-u9I" secondAttribute="height" id="gTj-6X-jC5"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
                                             <exclude reference="C53-0D-Faa"/>
                                         </mask>
                                     </variation>
-                                    <connections>
-                                        <outletCollection property="gestureRecognizers" destination="XuR-ON-LgT" appends="YES" id="gwX-ED-CGE"/>
-                                    </connections>
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>
@@ -456,14 +463,8 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sMV-rC-USD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="QWj-35-eHl" userLabel="Exit" sceneMemberID="exit"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="XuR-ON-LgT">
-                    <connections>
-                        <action selector="panGestureTriggerred:" destination="PCh-Bf-iQR" id="joB-pD-vxJ"/>
-                    </connections>
-                </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1022.5" y="-52.5"/>
+            <point key="canvasLocation" x="1092.5" y="-52.5"/>
         </scene>
         <!--证件照上传-->
         <scene sceneID="kJp-TD-BYN">

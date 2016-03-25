@@ -36,6 +36,13 @@ class MADRegisterViewController: UIViewController {
     var currentState = RegisterState.PhoneNumber
     var verifyCodeTimer: NSTimer?
     var verifyCodeTimeLeft = maxTime
+    var dirty: Bool {
+        if mobileTextField.text != "" {
+            return true
+        } else {
+            return false
+        }
+    }
     
     var hud: MBProgressHUD?
     @IBOutlet weak var mobileTextField: DesignableTextField!
@@ -53,6 +60,26 @@ class MADRegisterViewController: UIViewController {
     weak var pwd2TextField: UITextField?
     
     
+    
+    
+    @IBAction func dismissKeyboard(sender: UIButton) {
+        view.endEditing(true)
+    }
+    
+    @IBAction func cancelButtonPressed(sender: UIButton) {
+        if dirty {
+            let confirmCancel = UIAlertController(title: "MovingAD", message: "确定取消注册?", preferredStyle: .Alert)
+            confirmCancel.addAction(UIAlertAction(title: "是的", style: .Destructive, handler: {
+                action in
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }))
+            confirmCancel.addAction(UIAlertAction(title: "取消", style: .Default, handler: nil))
+            self.presentViewController(confirmCancel, animated: true, completion: nil)
+        } else {
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
+    }
+    
     @IBAction func resendVerifyButtonPressed(sender: UIButton) {
         verifyCodeTimeLeft = maxTime
         resendVerifyCodeButton.setImage(nil, forState: .Normal)
@@ -60,14 +87,6 @@ class MADRegisterViewController: UIViewController {
         resendVerifyCodeButton.setTitle("\(verifyCodeTimeLeft)", forState: .Normal)
         startTiming()
     }
-    
-    @IBAction func panGestureTriggerred(sender: UIPanGestureRecognizer) {
-        let velocity = sender.velocityInView(view)
-        if velocity.y > 0 {
-            view.endEditing(true)
-        }
-    }
-    
     
     @IBAction func sendVerifyCodeButtonPressed(sender: DesignableButton) {
         let phoneNumber = mobileTextField.text

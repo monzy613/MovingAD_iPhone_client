@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		F418B6B71CA01FD100CA7581 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F418B6B61CA01FD100CA7581 /* UIColorExtension.swift */; };
 		F422EC371CA3B63200E053D7 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F422EC361CA3B63200E053D7 /* TestViewController.swift */; };
-		F422EC451CA3B68200E053D7 /* MZLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F422EC441CA3B68200E053D7 /* MZLoadingView.swift */; };
 		F422EC491CA3C49000E053D7 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F422EC481CA3C49000E053D7 /* MBProgressHUD.m */; };
 		F425157F1C9F0E2700D9B2D1 /* MZToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F425157E1C9F0E2700D9B2D1 /* MZToastView.swift */; };
 		F46EDB511C9FDAD6007E119D /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46EDB501C9FDAD6007E119D /* Animation.swift */; };
@@ -199,7 +198,6 @@
 /* Begin PBXFileReference section */
 		F418B6B61CA01FD100CA7581 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		F422EC361CA3B63200E053D7 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
-		F422EC441CA3B68200E053D7 /* MZLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MZLoadingView.swift; sourceTree = "<group>"; };
 		F422EC461CA3C49000E053D7 /* MovingAD_iPhone_client-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MovingAD_iPhone_client-Bridging-Header.h"; sourceTree = "<group>"; };
 		F422EC471CA3C49000E053D7 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		F422EC481CA3C49000E053D7 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
@@ -330,10 +328,9 @@
 			children = (
 				F4ECFF041C9EBF800023DBF8 /* ThirdLibraries */,
 				F4ECFF011C9EBF170023DBF8 /* ViewControllers */,
-				F4D8B4631CA36BBF000F4FA3 /* Models */,
 				F49E8DC31CA19890006EF5F9 /* Tools */,
+				F4D8B4631CA36BBF000F4FA3 /* Models */,
 				F4ECFEF31C9EBECA0023DBF8 /* Main.storyboard */,
-				F422EC441CA3B68200E053D7 /* MZLoadingView.swift */,
 				F422EC361CA3B63200E053D7 /* TestViewController.swift */,
 				F4ECFEF61C9EBECA0023DBF8 /* Assets.xcassets */,
 				F4FBF07A1CA2F52B0071CE11 /* SupportingFiles */,
@@ -623,7 +620,6 @@
 			files = (
 				F4ECFF3A1C9EBF960023DBF8 /* SpringLabel.swift in Sources */,
 				F4ECFF2F1C9EBF960023DBF8 /* ImageLoader.swift in Sources */,
-				F422EC451CA3B68200E053D7 /* MZLoadingView.swift in Sources */,
 				F4D8B4621CA36933000F4FA3 /* MADDataStorage.swift in Sources */,
 				F4ECFF341C9EBF960023DBF8 /* Misc.swift in Sources */,
 				F4ECFF421C9EBFD40023DBF8 /* SwiftyJSON.swift in Sources */,

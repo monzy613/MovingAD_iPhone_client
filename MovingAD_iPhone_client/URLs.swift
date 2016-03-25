@@ -13,7 +13,7 @@ class MADURL {
     
     
     // Mark urls
-    static let domain = "180.161.160.22:3000"
+    static let domain = "121.42.214.153:3000"
     static let baseURL = "http://\(MADURL.domain)"
     static let login = "\(MADURL.baseURL)/login"
     
