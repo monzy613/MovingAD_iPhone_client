@@ -13,7 +13,7 @@ class MADURL {
     
     
     // Mark urls
-    static let domain = "121.42.214.153:3000"
+    static let domain = "192.168.1.100:3000"
     static let baseURL = "http://\(MADURL.domain)"
     static let login = "\(MADURL.baseURL)/login"
     
@@ -28,6 +28,20 @@ class MADURL {
         static let name = "name"
         static let gender = "gender"
     }
+    
+    
+    //e.g. statusCodeDictionary[status][0]   statusCodeDictionary[status][1]
+    static let statusCodeDictionary = [
+        "000": ["无法连接服务器", false],
+        "200": ["登陆成功", true],
+        "210": ["账号不存在或密码不正确", false],
+        "300": ["验证码已发送", true],
+        "310": ["手机号已被注册", false],
+        "320": ["验证码正确", true],
+        "330": ["验证码不正确", false],
+        "340": ["注册成功", true],
+        "350": ["注册失败", false]
+    ]
 }
 
 /*

@@ -44,15 +44,17 @@ class MADLoginViewController: UIViewController, UITextFieldDelegate {
                                 MADURL.param.account: account!,
                                 MADURL.param.password: password!],
                             onSuccess: {
-                                print("login success")
-                                self.hud?.hideAnimated(true)
+                                info in
+                                print("loginSuccess: \(info)")
+                                self.hud?.hideHUD(withText: info, andDelay: 0.3)
                                 self.performSegueWithIdentifier("LoginSuccessSegue", sender: self)
                             },
                             onFailure: {
+                                info in
                                 self.hud?.mode = .Text
-                                self.hud!.label.text = "登录失败"
+                                self.hud!.label.text = info
                                 self.hud?.hideAnimated(true, afterDelay: 1)
-                                print("login failed")
+                                print("login failed: \(info)")
                             })
         } else {
             MBProgressHUD.validationHUD(withView: view, text: "请输入正确手机号和密码")

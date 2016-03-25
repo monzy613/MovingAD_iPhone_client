@@ -54,10 +54,10 @@ class MADRegisterViewController: UIViewController {
     
     
     //textFields
-    weak var verifyCodeTextField: UITextField?
-    weak var nameTextField: UITextField?
-    weak var pwd1TextField: UITextField?
-    weak var pwd2TextField: UITextField?
+    var verifyCodeTextField: UITextField?
+    var nameTextField: UITextField?
+    var pwd1TextField: UITextField?
+    var pwd2TextField: UITextField?
     
     
     
@@ -101,7 +101,7 @@ class MADRegisterViewController: UIViewController {
             MADNetwork.Post(url: MADURL.registerPhone, parameters: [
                 MADURL.param.account: phoneNumber!
                 ], onSuccess: {
-                    
+                    info in
                     //make verify code text field
                     let sendButtonFrame = self.sendVerifyCodeButton.frame
                     let vTextFieldFrame = CGRectMake(sendButtonFrame.origin.x, sendButtonFrame.origin.y, sendButtonFrame.width * 0.3, sendButtonFrame.height)
@@ -119,10 +119,11 @@ class MADRegisterViewController: UIViewController {
                     self.resendVerifyCodeButton.hidden = false
                     self.resendVerifyCodeButton.setTitle("\(self.verifyCodeTimeLeft)", forState: .Normal)
                     
-                    self.hud?.hideHUD(withText: "验证码已发送", andDelay: 0.3)
+                    self.hud?.hideHUD(withText: info, andDelay: 0.3)
                     self.startTiming()
                 }, onFailure: {
-                    self.hud?.hideHUD(withText: "发生了点问题", andDelay: 1.0)
+                    info in
+                    self.hud?.hideHUD(withText: info, andDelay: 1.0)
             })
             break
         case .VerifyCode:
@@ -138,6 +139,7 @@ class MADRegisterViewController: UIViewController {
                 MADURL.param.account: phoneNumber!,
                 MADURL.param.verifyNumber: verifyCode!
                 ], onSuccess: {
+                    info in
                     //if success, make name, pwd1, pwd2 textFields
                     self.resendVerifyCodeButton.hidden = true
                     let tfSize = self.mobileTextField.frame.size
@@ -178,9 +180,10 @@ class MADRegisterViewController: UIViewController {
                     self.sendVerifyCodeButton.setTitle("注册", forState: .Normal)
                     self.sendVerifyCodeButton.backgroundColor = UIColor(hex6: 0x00D000)
                     self.mobileTextField.enabled = false
-                    self.hud?.hideHUD(withText: "验证成功", andDelay: 0.3)
+                    self.hud?.hideHUD(withText: info, andDelay: 0.3)
                 }, onFailure: {
-                    self.hud?.hideHUD(withText: "验证失败", andDelay: 1.0)
+                    info in
+                    self.hud?.hideHUD(withText: info, andDelay: 1.0)
             })
             break
         case .UserInfo:
@@ -199,18 +202,19 @@ class MADRegisterViewController: UIViewController {
                 MADURL.param.name: name ?? "defaultName",
                 MADURL.param.password: pwd1!
                 ], onSuccess: {
-                    self.hud?.hideHUD(withText: "注册成功", andDelay: 0.3)
+                    info in
+                    self.hud?.hideHUD(withText: info, andDelay: 0.3)
                     self.performSegueWithIdentifier(MADSegues.registerSuccess, sender: self)
                 }, onFailure: {
-                    self.hud?.hideHUD(withText: "注册失败", andDelay: 1.0)
+                    info in
+                    self.hud?.hideHUD(withText: info, andDelay: 1.0)
             })
             break
         }
     }
     
     func newTextField(withPlaceHolder placeHolder: String) -> UITextField {
-        var tf = UITextField(frame: CGRect.zero)
-        tf = UITextField()
+        let tf = UITextField(frame: CGRect.zero)
         tf.layer.cornerRadius = mobileTextField.layer.cornerRadius
         tf.backgroundColor = UIColor.whiteColor()
         tf.placeholder = placeHolder
