@@ -9,17 +9,41 @@
 import Foundation
 
 class MADURL {
-    // Mark parapeters
-    
-    
     // Mark urls
-    static let domain = "192.168.1.100:3000"
-    static let baseURL = "http://\(MADURL.domain)"
-    static let login = "\(MADURL.baseURL)/login"
+    static var ip = "42.96.155.17"
+    static var port = "3000"
     
-    static let registerPhone = "\(MADURL.baseURL)/registerPhone"
-    static let registerVerify = "\(MADURL.baseURL)/registerVerify"
-    static let register = "\(MADURL.baseURL)/register"
+    class var baseURL: String {
+        get {
+            return "http://\(MADURL.ip):\(port)"
+        }
+    }
+    
+    class var login: String {
+        get {
+            return "\(MADURL.baseURL)/login"
+        }
+    }
+    
+    class var registerPhone: String {
+        get {
+            return "\(MADURL.baseURL)/registerPhone"
+        }
+    }
+    
+    class var registerVerify: String {
+        get {
+            return "\(MADURL.baseURL)/registerVerify"
+        }
+    }
+    
+    class var register: String {
+        get {
+            return "\(MADURL.baseURL)/register"
+        }
+    }
+    
+    
     //parameters
     class param {
         static let account = "account"

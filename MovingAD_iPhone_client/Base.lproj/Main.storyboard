@@ -288,17 +288,33 @@
                                     <segue destination="BYZ-38-t0r" kind="presentation" identifier="LoginSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="ipK-DM-RFV"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C2c-Dl-2PU">
+                                <rect key="frame" x="319" y="20" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="2Zy-Gy-h17"/>
+                                    <constraint firstAttribute="width" constant="40" id="DDc-Vi-0hW"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="devBack:" destination="2DD-ZX-DE3" eventType="touchUpInside" id="q8t-gT-qh8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="3db-Z0-M8D" firstAttribute="top" secondItem="C2c-Dl-2PU" secondAttribute="bottom" constant="-60" id="2so-vf-AOY"/>
+                            <constraint firstItem="C2c-Dl-2PU" firstAttribute="centerX" secondItem="3db-Z0-M8D" secondAttribute="centerX" id="5ev-pN-VHA"/>
                             <constraint firstItem="870-sW-L8R" firstAttribute="bottom" secondItem="b1o-a9-7Bd" secondAttribute="bottom" id="7mj-V3-3Eu"/>
                             <constraint firstItem="3db-Z0-M8D" firstAttribute="width" secondItem="hdF-n9-TGG" secondAttribute="width" id="FVQ-cx-8Dr"/>
                             <constraint firstItem="3db-Z0-M8D" firstAttribute="width" secondItem="hdF-n9-TGG" secondAttribute="width" multiplier="0.8" id="IkV-2y-iEX"/>
+                            <constraint firstItem="C2c-Dl-2PU" firstAttribute="trailing" secondItem="hdF-n9-TGG" secondAttribute="trailingMargin" id="O4m-4K-0yS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="870-sW-L8R" secondAttribute="trailing" id="PfL-Mj-bOr"/>
                             <constraint firstItem="cEe-RV-Hni" firstAttribute="top" secondItem="b1o-a9-7Bd" secondAttribute="bottom" constant="15" id="SPN-S1-zwJ"/>
+                            <constraint firstItem="C2c-Dl-2PU" firstAttribute="centerY" secondItem="3db-Z0-M8D" secondAttribute="centerY" id="XNX-C5-OD7"/>
                             <constraint firstItem="3db-Z0-M8D" firstAttribute="centerY" secondItem="hdF-n9-TGG" secondAttribute="centerY" id="ZQ8-1k-MY0"/>
+                            <constraint firstItem="C2c-Dl-2PU" firstAttribute="leading" secondItem="3db-Z0-M8D" secondAttribute="trailing" constant="-60" id="eVy-sz-1i2"/>
                             <constraint firstAttribute="leadingMargin" secondItem="b1o-a9-7Bd" secondAttribute="leading" id="kjJ-I4-e1u"/>
                             <constraint firstItem="870-sW-L8R" firstAttribute="width" secondItem="b1o-a9-7Bd" secondAttribute="width" id="ksj-ew-gng"/>
+                            <constraint firstItem="C2c-Dl-2PU" firstAttribute="top" secondItem="UOg-Bq-Ee0" secondAttribute="bottom" id="leS-IU-yuO"/>
                             <constraint firstItem="870-sW-L8R" firstAttribute="height" secondItem="b1o-a9-7Bd" secondAttribute="height" id="rmv-dW-4AM"/>
                             <constraint firstItem="3db-Z0-M8D" firstAttribute="height" secondItem="hdF-n9-TGG" secondAttribute="height" id="vbp-8z-xNV"/>
                             <constraint firstItem="b1o-a9-7Bd" firstAttribute="width" secondItem="hdF-n9-TGG" secondAttribute="width" multiplier="0.43" id="xfT-7B-94W"/>
@@ -306,7 +322,11 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="2so-vf-AOY"/>
                                 <exclude reference="IkV-2y-iEX"/>
+                                <exclude reference="5ev-pN-VHA"/>
+                                <exclude reference="XNX-C5-OD7"/>
+                                <exclude reference="eVy-sz-1i2"/>
                             </mask>
                         </variation>
                     </view>
@@ -938,7 +958,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Rd-MR-oeL" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="591.5" y="1600.5"/>
+            <point key="canvasLocation" x="597.5" y="1513.5"/>
         </scene>
         <!--Test View Controller-->
         <scene sceneID="E2W-bR-P0j">
@@ -957,7 +977,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gKz-Jf-geu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1050.5" y="1600.5"/>
+            <point key="canvasLocation" x="1050.5" y="1513.5"/>
         </scene>
     </scenes>
     <resources>

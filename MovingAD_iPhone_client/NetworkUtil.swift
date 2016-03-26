@@ -33,11 +33,12 @@ import Alamofire
 
 class MADNetwork {
     static func Post(url url: String, parameters: [String: String]?, onSuccess: String -> Void, onFailure: String -> Void) {
+        print("PostURL: \(url)")
         Alamofire.request(.POST, url, parameters: parameters).responseJSON {
             response in
             let json = JSON(response.result.value ?? [])
-            if let err = response.result.error {
-                print("error: \(err)")
+            if let _ = response.result.error {
+                print("error")
                 onFailure("000")
             }
             if let statusCode = json["status"].string {
