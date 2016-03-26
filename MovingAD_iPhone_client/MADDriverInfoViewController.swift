@@ -23,10 +23,22 @@ class MADDriverInfoViewController: UIViewController {
     
     
     // Mark actions
+    @IBAction func logoutButtonPressed(sender: UIBarButtonItem) {
+        let logoutAlert = UIAlertController(title: "退出登录", message: "要退出登录吗", preferredStyle: .Alert)
+        logoutAlert.addAction(UIAlertAction(title: "是", style: .Destructive, handler: {
+            action in
+            self.tabBarController?.performSegueWithIdentifier(MADSegues.logout, sender: self.tabBarController!)
+        }))
+        logoutAlert.addAction(UIAlertAction(title: "否", style: .Default, handler: nil))
+        self.presentViewController(logoutAlert, animated: true, completion: nil)
+    }
+    
     @IBAction func drivingLicenceSignDateChosen(sender: UIDatePicker) {
+        print("licenceSignDate: \(sender.date)")
     }
     
     @IBAction func drivingLicenceDueDateChosen(sender: UIDatePicker) {
+        print("licenceDueDate: \(sender.date)")
     }
     override func viewDidLoad() {
         super.viewDidLoad()

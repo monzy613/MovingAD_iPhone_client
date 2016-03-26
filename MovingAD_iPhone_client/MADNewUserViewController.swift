@@ -18,13 +18,6 @@ class MADNewUserViewController: UIViewController {
     @IBOutlet weak var registerButton: DesignableButton!
 
     
-    func animateButtons() {
-        loginButton.animation = "slideUp"
-        registerButton.animation = "slideUp"
-        loginButton.animate()
-        registerButton.animate()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -32,7 +25,6 @@ class MADNewUserViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        animateButtons()
     }
 
     override func didReceiveMemoryWarning() {
@@ -83,7 +75,7 @@ class MADNewUserViewController: UIViewController {
             action in
             MADURL.ip = "42.96.155.17"
         }))
-        serverlistAlert.addAction(UIAlertAction(title: "Default", style: .Destructive, handler: {
+        serverlistAlert.addAction(UIAlertAction(title: "Default", style: .Cancel, handler: {
             action in
         }))
         self.presentViewController(serverlistAlert, animated: true, completion: nil)

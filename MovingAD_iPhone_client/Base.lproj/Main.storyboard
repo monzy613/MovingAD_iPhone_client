@@ -282,7 +282,6 @@
                                         <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="NO"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="slideUp"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="presentation" identifier="LoginSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="ipK-DM-RFV"/>
@@ -797,7 +796,14 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="个人信息登记" id="sDd-zs-3f1"/>
+                    <navigationItem key="navigationItem" title="个人信息登记" id="sDd-zs-3f1">
+                        <barButtonItem key="rightBarButtonItem" title="退出登录" id="GUb-pK-7d0">
+                            <color key="tintColor" red="0.95983892679214478" green="0.070271365344524384" blue="0.096085719764232635" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="logoutButtonPressed:" destination="tRP-CA-imd" id="Gad-KU-Thq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="drivingLicenceDueDate" destination="lbb-hR-cgR" id="IbZ-yB-qGv"/>
@@ -878,11 +884,12 @@
                         <segue destination="DiA-rK-hqP" kind="relationship" relationship="viewControllers" id="bEk-9p-H5C"/>
                         <segue destination="WLj-gT-cRN" kind="relationship" relationship="viewControllers" id="xZW-7O-z3V"/>
                         <segue destination="hZj-uM-1g8" kind="relationship" relationship="viewControllers" id="cS5-T2-VQ9"/>
+                        <segue destination="2DD-ZX-DE3" kind="presentation" identifier="LogoutSegue" modalTransitionStyle="crossDissolve" id="KqB-yG-To8"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uGa-Aa-dhb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="129.5" y="739.5"/>
+            <point key="canvasLocation" x="35.5" y="957.5"/>
         </scene>
         <!--蓝牙连接-->
         <scene sceneID="4Qn-Ox-gOA">
@@ -977,7 +984,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gKz-Jf-geu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1050.5" y="1513.5"/>
+            <point key="canvasLocation" x="1534.5" y="1513.5"/>
         </scene>
     </scenes>
     <resources>
