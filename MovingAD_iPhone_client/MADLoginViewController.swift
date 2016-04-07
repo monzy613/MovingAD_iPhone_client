@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 extension MBProgressHUD {
     class func validationHUD(withView view: UIView, text: String) {
         let hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
         hud.mode = .Text
-        hud.label.text = text
-        hud.hideAnimated(true, afterDelay: 1.0)
+        hud.labelText = text
+        hud.hide(true, afterDelay: 1.0)
     }
 }
 
@@ -38,7 +39,7 @@ class MADLoginViewController: UIViewController, UITextFieldDelegate {
         if phoneNumberValidation == .Valid && passwordValidation == .Valid {
             hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
             hud!.mode = .Indeterminate
-            hud?.label.text = "登录中"
+            hud?.labelText = "登录中"
             MADNetwork.Post(url: MADURL.login,
                             parameters: [
                                 MADURL.param.account: account!,
@@ -52,8 +53,8 @@ class MADLoginViewController: UIViewController, UITextFieldDelegate {
                             onFailure: {
                                 info in
                                 self.hud?.mode = .Text
-                                self.hud!.label.text = info
-                                self.hud?.hideAnimated(true, afterDelay: 1)
+                                self.hud!.labelText = info
+                                self.hud?.hide(true, afterDelay: 1)
                                 print("login failed: \(info)")
                             })
         } else {

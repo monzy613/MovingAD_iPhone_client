@@ -8,6 +8,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class TestViewController: UIViewController {
     
@@ -20,9 +21,9 @@ class TestViewController: UIViewController {
          hud.mode = MBProgressHUDModeAnnularDeterminate;
          hud.labelText = @"Loading";
          */
-        var hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        let hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         hud.mode = .Indeterminate
-        hud.label.text = "登录中"
+        hud.labelText = "登录中"
     }
 
     override func didReceiveMemoryWarning() {

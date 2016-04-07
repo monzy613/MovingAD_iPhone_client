@@ -7,19 +7,19 @@
 //
 
 import UIKit
-
+import MBProgressHUD
 
 extension MBProgressHUD {
     func hideHUD(withText text: String, andDelay delay: NSTimeInterval) {
         self.mode = .Text
-        self.label.text = text
-        self.hideAnimated(true, afterDelay: delay)
+        self.labelText = text
+        self.hide(true, afterDelay: delay)
     }
     
     static func madLoading(inView view: UIView, withText text: String) -> MBProgressHUD {
         let hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
         hud.mode = .Indeterminate
-        hud.label.text = text
+        hud.labelText = text
         return hud
     }
 }

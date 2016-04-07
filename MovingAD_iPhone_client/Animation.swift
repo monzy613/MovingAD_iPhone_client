@@ -9,7 +9,6 @@
 import UIKit
 import pop
 
-
 class MZAnim {
     static func move(object obj: AnyObject, destPoint: CGPoint) {
         let anim = POPSpringAnimation(propertyNamed: kPOPViewCenter)
