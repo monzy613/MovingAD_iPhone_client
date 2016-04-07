@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2DD-ZX-DE3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8DI-sW-zvu">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -848,7 +848,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ljr-mP-esf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="129.5" y="1513.5"/>
+            <point key="canvasLocation" x="-286.5" y="1824.5"/>
         </scene>
         <!--个人设置-->
         <scene sceneID="lPP-ZH-Min">
@@ -881,15 +881,35 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <segue destination="2DD-ZX-DE3" kind="presentation" identifier="LogoutSegue" modalTransitionStyle="crossDissolve" id="KqB-yG-To8"/>
                         <segue destination="DiA-rK-hqP" kind="relationship" relationship="viewControllers" id="bEk-9p-H5C"/>
                         <segue destination="WLj-gT-cRN" kind="relationship" relationship="viewControllers" id="xZW-7O-z3V"/>
+                        <segue destination="Ybs-iE-hyx" kind="relationship" relationship="viewControllers" id="KaX-IR-7hf"/>
                         <segue destination="hZj-uM-1g8" kind="relationship" relationship="viewControllers" id="cS5-T2-VQ9"/>
-                        <segue destination="2DD-ZX-DE3" kind="presentation" identifier="LogoutSegue" modalTransitionStyle="crossDissolve" id="KqB-yG-To8"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uGa-Aa-dhb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="35.5" y="957.5"/>
+        </scene>
+        <!--定位-->
+        <scene sceneID="zN4-oA-2ey">
+            <objects>
+                <viewController id="Ybs-iE-hyx" customClass="MADMapViewController" customModule="MovingAD_iPhone_client" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ffx-k8-bS0"/>
+                        <viewControllerLayoutGuide type="bottom" id="I9Z-0C-MZs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZHd-fS-FGZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="定位" image="compass" id="ARN-TL-ixS"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zec-Lb-DUT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="140.5" y="1824.5"/>
         </scene>
         <!--蓝牙连接-->
         <scene sceneID="4Qn-Ox-gOA">
@@ -984,12 +1004,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gKz-Jf-geu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1534.5" y="1513.5"/>
+            <point key="canvasLocation" x="1349.5" y="1481.5"/>
         </scene>
     </scenes>
     <resources>
-        <image name="account" width="20" height="20"/>
+        <image name="account" width="22" height="22"/>
         <image name="bluetooth" width="20" height="20"/>
+        <image name="compass" width="22" height="22"/>
         <image name="home" width="24" height="20"/>
         <image name="launchscreen" width="511" height="935"/>
         <image name="movingAD" width="511" height="512"/>
