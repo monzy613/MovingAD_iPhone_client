@@ -10,7 +10,7 @@ import Foundation
 
 class MADURL {
     // Mark urls
-    static var ip = "115.28.206.58"
+    static var ip = "221.239.197.37"
     static var port = "5000"
     
     class var baseURL: String {
@@ -21,7 +21,7 @@ class MADURL {
     
     class var login: String {
         get {
-            return "\(MADURL.baseURL)/app/login"
+            return "\(MADURL.baseURL)/app/check_login"
         }
     }
     
@@ -52,7 +52,7 @@ class MADURL {
     
     //parameters
     class param {
-        static let account = "account"
+        static let phone = "phone"
         static let password = "password"
         static let verifyNumber = "verifyNumber"
         static let name = "name"

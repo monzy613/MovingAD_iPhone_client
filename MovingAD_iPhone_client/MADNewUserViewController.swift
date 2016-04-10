@@ -81,6 +81,10 @@ class MADNewUserViewController: UIViewController {
             action in
             MADURL.ip = "115.28.206.58"
         }))
+        serverlistAlert.addAction(UIAlertAction(title: "221.239.197.37", style: .Default, handler: {
+            action in
+            MADURL.ip = "221.239.197.37"
+        }))
         serverlistAlert.addAction(UIAlertAction(title: "Default", style: .Cancel, handler: {
             action in
         }))

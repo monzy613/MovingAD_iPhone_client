@@ -99,7 +99,7 @@ class MADRegisterViewController: UIViewController {
             }
             hud = MBProgressHUD.madLoading(inView: view, withText: "发送中")
             MADNetwork.Post(url: MADURL.registerPhone, parameters: [
-                MADURL.param.account: phoneNumber!
+                MADURL.param.phone: phoneNumber!
                 ], onSuccess: {
                     info in
                     //make verify code text field
@@ -136,7 +136,7 @@ class MADRegisterViewController: UIViewController {
             }
             hud = MBProgressHUD.madLoading(inView: view, withText: "发送中")
             MADNetwork.Post(url: MADURL.registerVerify, parameters: [
-                MADURL.param.account: phoneNumber!,
+                MADURL.param.phone: phoneNumber!,
                 MADURL.param.verifyNumber: verifyCode!
                 ], onSuccess: {
                     info in
@@ -198,7 +198,7 @@ class MADRegisterViewController: UIViewController {
             }
             hud = MBProgressHUD.madLoading(inView: view, withText: "注册中")
             MADNetwork.Post(url: MADURL.register, parameters: [
-                MADURL.param.account: phoneNumber!,
+                MADURL.param.phone: phoneNumber!,
                 MADURL.param.name: name ?? "defaultName",
                 MADURL.param.password: pwd1!
                 ], onSuccess: {

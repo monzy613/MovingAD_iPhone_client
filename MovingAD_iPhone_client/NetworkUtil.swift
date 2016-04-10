@@ -37,12 +37,14 @@ class MADNetwork {
         Alamofire.request(.POST, url, parameters: parameters).responseJSON {
             response in
             let json = JSON(response.result.value ?? [])
+            print("json: \(json)")
             if let _ = response.result.error {
                 print("error")
                 onFailure("000")
                 return
             }
-            if let statusCode = json["status"].string {
+            if let statusInt = json["status"].int {
+                let statusCode = "\(statusInt)"
                 if let tuple = MADURL.statusCodeDictionary[statusCode] {
                     if tuple[1] as! Bool {
                         onSuccess(MADURL.statusCodeDictionary[statusCode]![0] as! String)

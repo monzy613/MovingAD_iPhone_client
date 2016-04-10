@@ -43,7 +43,7 @@ class MADLoginViewController: UIViewController, UITextFieldDelegate {
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)) {
                 MADNetwork.Post(url: MADURL.login,
                                 parameters: [
-                                    MADURL.param.account: account!,
+                                    MADURL.param.phone: account!,
                                     MADURL.param.password: password!],
                                 onSuccess: {
                                     info in
