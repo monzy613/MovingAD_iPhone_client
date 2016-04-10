@@ -10,8 +10,8 @@ import Foundation
 
 class MADURL {
     // Mark urls
-    static var ip = "42.96.155.17"
-    static var port = "3000"
+    static var ip = "115.28.206.58"
+    static var port = "5000"
     
     class var baseURL: String {
         get {
@@ -21,25 +21,31 @@ class MADURL {
     
     class var login: String {
         get {
-            return "\(MADURL.baseURL)/login"
+            return "\(MADURL.baseURL)/app/login"
         }
     }
     
     class var registerPhone: String {
         get {
-            return "\(MADURL.baseURL)/registerPhone"
+            return "\(MADURL.baseURL)/app/registerPhone"
         }
     }
     
     class var registerVerify: String {
         get {
-            return "\(MADURL.baseURL)/registerVerify"
+            return "\(MADURL.baseURL)/app/registerVerify"
         }
     }
     
     class var register: String {
         get {
-            return "\(MADURL.baseURL)/register"
+            return "\(MADURL.baseURL)/app/register"
+        }
+    }
+
+    class var get_all_advs: String {
+        get {
+            return "\(MADURL.baseURL)/app/get_all_advs"
         }
     }
     

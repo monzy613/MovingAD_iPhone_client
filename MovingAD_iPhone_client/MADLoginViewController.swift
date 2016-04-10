@@ -40,23 +40,29 @@ class MADLoginViewController: UIViewController, UITextFieldDelegate {
             hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
             hud!.mode = .Indeterminate
             hud?.labelText = "登录中"
-            MADNetwork.Post(url: MADURL.login,
-                            parameters: [
-                                MADURL.param.account: account!,
-                                MADURL.param.password: password!],
-                            onSuccess: {
-                                info in
-                                print("loginSuccess: \(info)")
-                                self.hud?.hideHUD(withText: info, andDelay: 0.3)
-                                self.performSegueWithIdentifier("LoginSuccessSegue", sender: self)
-                            },
-                            onFailure: {
-                                info in
-                                self.hud?.mode = .Text
-                                self.hud!.labelText = info
-                                self.hud?.hide(true, afterDelay: 1)
-                                print("login failed: \(info)")
-                            })
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)) {
+                MADNetwork.Post(url: MADURL.login,
+                                parameters: [
+                                    MADURL.param.account: account!,
+                                    MADURL.param.password: password!],
+                                onSuccess: {
+                                    info in
+                                    dispatch_async(dispatch_get_main_queue()) {
+                                        print("loginSuccess: \(info)")
+                                        self.hud?.hideHUD(withText: info, andDelay: 0.3)
+                                        self.performSegueWithIdentifier("LoginSuccessSegue", sender: self)
+                                    }
+                    },
+                                onFailure: {
+                                    info in
+                                    dispatch_async(dispatch_get_main_queue()) {
+                                        self.hud?.mode = .Text
+                                        self.hud!.labelText = info
+                                        self.hud?.hide(true, afterDelay: 1)
+                                        print("login failed: \(info)")
+                                    }
+                })
+            }
         } else {
             MBProgressHUD.validationHUD(withView: view, text: "请输入正确手机号和密码")
         }

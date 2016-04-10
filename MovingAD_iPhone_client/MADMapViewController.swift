@@ -9,9 +9,11 @@
 import UIKit
 
 class MADMapViewController: UIViewController, MAMapViewDelegate, AMapLocationManagerDelegate {
-    let APIKEY = "595cbf3db246492dff2f101c937b0a7c"
+    let APIKEY = "APIKEY"
     var mapView: MAMapView?
     var locationManager: AMapLocationManager?
+    var advLocationDictionary = [Int: [CLLocation]]()
+    var isInArea = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,45 +37,63 @@ class MADMapViewController: UIViewController, MAMapViewDelegate, AMapLocationMan
         mapView?.showsUserLocation = true
         mapView?.userTrackingMode = .FollowWithHeading
         mapView?.setZoomLevel(15.0, animated: true)
-        print("currentPosition: \(mapView?.userLocation.coordinate)")
         self.view.addSubview(mapView!)
     }
 
-    func addPolygon() {
+    func addPolygon(locations: [CLLocation]) {
         var coordinates = [CLLocationCoordinate2D]()
-        coordinates.append(CLLocationCoordinate2DMake(31.2871821398, 121.2183711262))
-        coordinates.append(CLLocationCoordinate2DMake(31.2872704151, 121.2193029046))
-        coordinates.append(CLLocationCoordinate2DMake(31.2859471398, 121.2178861262))
-        coordinates.append(CLLocationCoordinate2DMake(31.2855044151, 121.2189159046))
-
-        mapView?.addOverlay(MAPolygon(coordinates: &coordinates, count: 4))
+        for location in locations {
+            coordinates.append(location.coordinate)
+        }
+        mapView?.addOverlay(MAPolygon(coordinates: &coordinates, count: UInt(coordinates.count)))
     }
 
     //MARK: MAMapViewDelegate Methods
     func mapView(mapView: MAMapView!, viewForOverlay overlay: MAOverlay!) -> MAOverlayView! {
         if overlay.isKindOfClass(MAPolygon) {
-            let polygonView = MAPolygonView(polygon: overlay as! MAPolygon)
-            polygonView.lineWidth = 5.0
+            let polygon = overlay as! MAPolygon
+            let polygonView = MAPolygonView(polygon: polygon)
+            polygonView.lineWidth = 3.0
             polygonView.strokeColor = UIColor.redColor()
             polygonView.lineJoin = .Miter
 
+            let userMapPoint = MAMapPointForCoordinate(self.mapView!.userLocation.coordinate)
+            let polygonPoints = polygon.points
+            let contains = MAPolygonContainsPoint(userMapPoint, polygonPoints, polygon.pointCount)
+            print("contains: \(contains)")
+            let showAlert = (contains == true && self.isInArea == false)
+
+
+            if showAlert {
+                let alert = UIAlertController(title: "stepped in area", message: "stepped in area", preferredStyle: .Alert)
+                alert.addAction(UIAlertAction(title: "ok", style: .Default) {
+                    action in
+                })
+                self.presentViewController(alert, animated: true, completion: nil)
+            }
+
+            self.isInArea = contains
             return polygonView
         }
         return nil
     }
 
+    func mapView(mapView: MAMapView!, mapDidZoomByUser wasUserAction: Bool) {
+    }
+
     //MARK: AMapLocationManagerDelegate Methods
     func amapLocationManager(manager: AMapLocationManager!, didUpdateLocation location: CLLocation!) {
-        let amapcoord = MACoordinateConvert(location.coordinate, .GPS)
-        print("GPS->: \(location.coordinate)")
-        print("AMAP->: \(amapcoord)")
+        //let amapcoord = MACoordinateConvert(location.coordinate, .GPS)
+        //print("GPS->: \(location.coordinate)")
+        //print("AMAP->: \(amapcoord)")
+        MADNetwork.getPoints(url: MADURL.get_all_advs, onSuccess: {
+            advLocationDictionary in
+            self.advLocationDictionary = advLocationDictionary
+            for (adv_ID, locationArray) in advLocationDictionary {
+                if adv_ID > 4 {
+                    self.addPolygon(locationArray)
+                }
+            }
+            }, onFailure: nil)
     }
-    /*
-     31.2871821398,121.2183711262
-     31.2872704151,121.2193029046
-     31.2859471398,121.2178861262
-     31.2855044151, 121.2189159046
-     
-     31.2867034151,121.2187639046
-     */
 }

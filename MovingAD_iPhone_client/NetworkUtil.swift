@@ -40,6 +40,7 @@ class MADNetwork {
             if let _ = response.result.error {
                 print("error")
                 onFailure("000")
+                return
             }
             if let statusCode = json["status"].string {
                 if let tuple = MADURL.statusCodeDictionary[statusCode] {
@@ -65,6 +66,36 @@ class MADNetwork {
             default:
                 break
             }
+        }
+    }
+
+    static func getPoints(url url: String, onSuccess: [Int: [CLLocation]] -> Void, onFailure: (String -> Void)?) {
+        Alamofire.request(.GET, url).responseJSON {
+            res in
+            print(url)
+            let json = JSON(res.result.value ?? [])
+            if let _ = res.result.error {
+                onFailure?("error")
+                return
+            }
+            var advLocationDic = [Int: [CLLocation]]()
+            for adv in json.arrayValue {
+                let tmp = adv["points"].stringValue
+                let adv_ID = adv["adv_ID"].intValue
+                var pointsStr = tmp.substringFromIndex(tmp.startIndex.advancedBy(2))
+                let endIndex = pointsStr.endIndex.advancedBy(-2)
+                pointsStr = pointsStr.substringToIndex(endIndex)
+                let pointsStrArray = pointsStr.componentsSeparatedByString("], [")
+                var points = [CLLocation]()
+                for point in pointsStrArray {
+                    let location: CLLocation = CLLocation(
+                        latitude: CLLocationDegrees(point.componentsSeparatedByString(", ")[1]) ?? 0.0,
+                        longitude: CLLocationDegrees(point.componentsSeparatedByString(", ")[0]) ?? 0.0)
+                    points.append(location)
+                }
+                advLocationDic[adv_ID] = points
+            }
+            onSuccess(advLocationDic)
         }
     }
     

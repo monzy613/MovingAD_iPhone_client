@@ -70,10 +70,16 @@ class MADNewUserViewController: UIViewController {
         serverlistAlert.addAction(UIAlertAction(title: "121.42.214.153", style: .Default, handler: {
             action in
             MADURL.ip = "121.42.214.153"
+            MADURL.port = "3000"
         }))
         serverlistAlert.addAction(UIAlertAction(title: "42.96.155.17", style: .Default, handler: {
             action in
             MADURL.ip = "42.96.155.17"
+            MADURL.port = "3000"
+        }))
+        serverlistAlert.addAction(UIAlertAction(title: "115.28.206.58", style: .Default, handler: {
+            action in
+            MADURL.ip = "115.28.206.58"
         }))
         serverlistAlert.addAction(UIAlertAction(title: "Default", style: .Cancel, handler: {
             action in
