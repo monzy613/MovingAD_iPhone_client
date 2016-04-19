@@ -1,10 +1,11 @@
 ARCHS = $(ARCHS_STANDARD)
 EMBEDDED_CONTENT_CONTAINS_SWIFT = YES
-FRAMEWORK_SEARCH_PATHS = $(inherited) "$CONFIGURATION_BUILD_DIR/Alamofire" "$CONFIGURATION_BUILD_DIR/MBProgressHUD" "${PODS_ROOT}/AMap2DMap" "${PODS_ROOT}/AMapLocation" "${PODS_ROOT}/AMapSearch"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/AMap2DMap" "${PODS_ROOT}/AMapLocation" "${PODS_ROOT}/AMapSearch"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AMap2DMap" "${PODS_ROOT}/Headers/Public/AMapLocation" "${PODS_ROOT}/Headers/Public/AMapSearch"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_CFLAGS = $(inherited) -iquote "$CONFIGURATION_BUILD_DIR/Alamofire/Alamofire.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/MBProgressHUD/MBProgressHUD.framework/Headers" -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/AMap2DMap" -isystem "${PODS_ROOT}/Headers/Public/AMapLocation" -isystem "${PODS_ROOT}/Headers/Public/AMapSearch"
-OTHER_LDFLAGS = $(inherited) -ObjC -l"c++" -l"stdc++.6.0.9" -l"z" -framework "AMapLocationKit" -framework "AMapSearchKit" -framework "Alamofire" -framework "CoreLocation" -framework "CoreTelephony" -framework "MAMapKit" -framework "MBProgressHUD" -framework "QuartzCore" -framework "Security" -framework "SystemConfiguration"
+OTHER_CFLAGS = $(inherited) -iquote "$CONFIGURATION_BUILD_DIR/Alamofire.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/MBProgressHUD.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/pop.framework/Headers" -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/AMap2DMap" -isystem "${PODS_ROOT}/Headers/Public/AMapLocation" -isystem "${PODS_ROOT}/Headers/Public/AMapSearch"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"c++" -l"stdc++.6.0.9" -l"z" -framework "AMapLocationKit" -framework "AMapSearchKit" -framework "Alamofire" -framework "CoreLocation" -framework "CoreTelephony" -framework "MAMapKit" -framework "MBProgressHUD" -framework "QuartzCore" -framework "Security" -framework "SystemConfiguration" -framework "pop"
 OTHER_SWIFT_FLAGS = $(inherited) "-D" "COCOAPODS"
+PODS_FRAMEWORK_BUILD_PATH = $(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Pods-MovingAD_iPhone_client
 PODS_ROOT = ${SRCROOT}/Pods

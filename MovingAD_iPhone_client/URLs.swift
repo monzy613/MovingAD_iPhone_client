@@ -10,7 +10,7 @@ import Foundation
 
 class MADURL {
     // Mark urls
-    static var ip = "221.239.197.37"
+    static var ip = "115.28.206.58"
     static var port = "5000"
     
     class var baseURL: String {

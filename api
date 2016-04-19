@@ -1,0 +1,4 @@
+/post_adv/<int:adv_ID>/<int:driver_account_ID>
+/get_all_advs
+http://xxx:5000/static/image/adv_pic/
+wanglaoju.jpg

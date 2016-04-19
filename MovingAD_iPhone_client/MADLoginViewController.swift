@@ -77,7 +77,6 @@ class MADLoginViewController: UIViewController, UITextFieldDelegate {
     
     
     //textField delegage methods
-    
     func textFieldDidEndEditing(textField: UITextField) {
     }
     
