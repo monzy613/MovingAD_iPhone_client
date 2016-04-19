@@ -30,3 +30,7 @@ enum MADDataKey: String {
     case loginPack = "AccountAndPassword"
     case userInfo = "UserInformations"
 }
+
+struct MADBlueToothKeys {
+    static let adInfo = "MAD.AdvertisementInfo"
+}

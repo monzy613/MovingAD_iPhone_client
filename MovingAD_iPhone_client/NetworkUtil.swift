@@ -71,7 +71,7 @@ class MADNetwork {
         }
     }
 
-    static func getPoints(url url: String, onSuccess: [Int: [CLLocation]] -> Void, onFailure: (String -> Void)?) {
+    static func getPoints(url url: String, onSuccess: ([Int: [CLLocation]], JSON) -> Void, onFailure: (String -> Void)?) {
         Alamofire.request(.GET, url).responseJSON {
             res in
             print(url)
@@ -79,6 +79,8 @@ class MADNetwork {
             if let _ = res.result.error {
                 onFailure?("error")
                 return
+            } else {
+                print(json)
             }
             var advLocationDic = [Int: [CLLocation]]()
             for adv in json.arrayValue {
@@ -97,7 +99,7 @@ class MADNetwork {
                 }
                 advLocationDic[adv_ID] = points
             }
-            onSuccess(advLocationDic)
+            onSuccess(advLocationDic, json)
         }
     }
     
