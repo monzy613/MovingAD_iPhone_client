@@ -1,0 +1,6 @@
+framework module MZPushModalView {
+  umbrella header "MZPushModalView-umbrella.h"
+
+  export *
+  module * { export * }
+}
