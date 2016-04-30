@@ -4,6 +4,7 @@ PODS:
   - AMapLocation (1.2.2)
   - AMapSearch (3.3.0)
   - MBProgressHUD (0.9.2)
+  - MZPushModalView (0.1.0)
   - pop (1.0.9)
 
 DEPENDENCIES:
@@ -12,7 +13,17 @@ DEPENDENCIES:
   - AMapLocation
   - AMapSearch
   - MBProgressHUD
+  - MZPushModalView (from `https://github.com/monzy613/MZPushModalView.git`)
   - pop
+
+EXTERNAL SOURCES:
+  MZPushModalView:
+    :git: https://github.com/monzy613/MZPushModalView.git
+
+CHECKOUT OPTIONS:
+  MZPushModalView:
+    :commit: 09e22257fc1f38810d354fc86eb9731432a38c05
+    :git: https://github.com/monzy613/MZPushModalView.git
 
 SPEC CHECKSUMS:
   Alamofire: 9054db4a1b1ca9e363223183e01cea380159a27c
@@ -20,6 +31,7 @@ SPEC CHECKSUMS:
   AMapLocation: 5412fbf0385716d4d481e39a95929057cddc093f
   AMapSearch: cff4faf59c007f7d1f2bae2d7170c3912783981a
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
+  MZPushModalView: d210ad4628218d53b1a2a46b92ad8ea9d93cc778
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
 
 COCOAPODS: 0.39.0
