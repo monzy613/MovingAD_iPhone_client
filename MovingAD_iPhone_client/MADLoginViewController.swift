@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 import MBProgressHUD
 
 extension MBProgressHUD {
@@ -24,6 +25,7 @@ class MADLoginViewController: UIViewController, UITextFieldDelegate {
     //hud
     var hud: MBProgressHUD?
     
+    @IBOutlet weak var forgetPasswordButton: UIButton!
     @IBOutlet weak var loginViewCenterYConstraint: NSLayoutConstraint!
     @IBOutlet weak var loginView: DesignableView!
     @IBOutlet weak var accountTextField: DesignableTextField!
@@ -40,28 +42,31 @@ class MADLoginViewController: UIViewController, UITextFieldDelegate {
             hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
             hud!.mode = .Indeterminate
             hud?.labelText = "登录中"
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)) {
-                MADNetwork.Post(url: MADURL.login,
-                                parameters: [
-                                    MADURL.param.phone: account!,
-                                    MADURL.param.password: password!],
-                                onSuccess: {
-                                    info in
-                                    dispatch_async(dispatch_get_main_queue()) {
-                                        print("loginSuccess: \(info)")
-                                        self.hud?.hideHUD(withText: info, andDelay: 0.3)
-                                        self.performSegueWithIdentifier("LoginSuccessSegue", sender: self)
-                                    }
-                    },
-                                onFailure: {
-                                    info in
-                                    dispatch_async(dispatch_get_main_queue()) {
-                                        self.hud?.mode = .Text
-                                        self.hud!.labelText = info
-                                        self.hud?.hide(true, afterDelay: 1)
-                                        print("login failed: \(info)")
-                                    }
-                })
+            Alamofire.request(.POST, MADURL.login, parameters: [
+                MADURL.param.phone: account!,
+                MADURL.param.password: password!]).responseJSON {
+                    res in
+                    if res.result.error != nil {
+                        self.hud?.mode = .Text
+                        self.hud!.labelText = "登录失败"
+                        self.hud?.hide(true, afterDelay: 1)
+                        return
+                    }
+                    let json = JSON(res.result.value ?? [])
+                    print(res.result.value)
+                    if let status = json["status"].string {
+                        if status == "210" {
+                            self.hud?.mode = .Text
+                            self.hud!.labelText = "登录失败"
+                            self.hud?.hide(true, afterDelay: 1)
+                            return
+                        }
+                    }
+                    print("loginSuccess: \(json)")
+                    MADUserInfo.currentUserInfo = MADUserInfo(json: json)
+                    self.hud?.hideHUD(withText: "登录成功", andDelay: 0.3)
+                    self.performSegueWithIdentifier("LoginSuccessSegue", sender: self)
+
             }
         } else {
             MBProgressHUD.validationHUD(withView: view, text: "请输入正确手机号和密码")
@@ -75,6 +80,8 @@ class MADLoginViewController: UIViewController, UITextFieldDelegate {
         dismissViewControllerAnimated(true, completion: {})
     }
     
+    @IBAction func forgetPasswordButtonPressed(sender: UIButton) {
+    }
     
     //textField delegage methods
     func textFieldDidEndEditing(textField: UITextField) {

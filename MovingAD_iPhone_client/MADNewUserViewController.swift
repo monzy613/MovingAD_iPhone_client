@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class MADNewUserViewController: UIViewController {
     private var devCount = 0
@@ -22,7 +23,7 @@ class MADNewUserViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-    
+
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
     }

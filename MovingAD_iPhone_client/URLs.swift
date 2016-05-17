@@ -11,7 +11,7 @@ import Foundation
 class MADURL {
     // Mark urls
     static var ip = "115.28.206.58"
-    //static var ip = "q137368440.xicp.net"
+//    static var ip = "q137368440.xicp.net"
     static var port = "5000"
     
     class var baseURL: String {
@@ -22,31 +22,44 @@ class MADURL {
     
     class var login: String {
         get {
-            return "\(MADURL.baseURL)/app/check_login"
-        }
-    }
-    
-    class var registerPhone: String {
-        get {
-            return "\(MADURL.baseURL)/app/registerPhone"
-        }
-    }
-    
-    class var registerVerify: String {
-        get {
-            return "\(MADURL.baseURL)/app/registerVerify"
-        }
-    }
-    
-    class var register: String {
-        get {
-            return "\(MADURL.baseURL)/app/register"
+            return "\(MADURL.baseURL)/app/check_login/"
         }
     }
 
-    class var get_all_advs: String {
+    class var get_driver_info: String {
         get {
-            return "\(MADURL.baseURL)/app/get_all_advs"
+            return "\(MADURL.baseURL)/app/get_driver_info/"
+        }
+    }
+
+    class func get_advs(meter meter: Int, lng: Double, lat: Double) -> String {
+        return "\(MADURL.baseURL)/app/get_advs/\(meter)/\(lng)/\(lat)/"
+    }
+
+    class func get_register_code(withPhone phone: String) -> String {
+        return "\(MADURL.baseURL)/app/get_register_code/\(phone)/"
+    }
+
+    class var check_register_code: String {
+        get {
+            return "\(MADURL.baseURL)/app/check_register_code/"
+        }
+    }
+
+    class var check_register: String {
+        get {
+            return "\(MADURL.baseURL)/app/check_register/"
+        }
+    }
+
+    //forget
+    class func get_login_code(phone: String) -> String {
+        return "\(MADURL.baseURL)/app/get_login_code/\(phone)/"
+    }
+
+    class var check_login_code: String {
+        get {
+            return "\(MADURL.baseURL)/app/check_login_code/"
         }
     }
     
@@ -55,7 +68,7 @@ class MADURL {
     class param {
         static let phone = "phone"
         static let password = "password"
-        static let verifyNumber = "verifyNumber"
+        static let verifyCode = "register_code"
         static let name = "name"
         static let gender = "gender"
     }
@@ -71,7 +84,10 @@ class MADURL {
         "320": ["验证码正确", true],
         "330": ["验证码不正确", false],
         "340": ["注册成功", true],
-        "350": ["注册失败", false]
+        "350": ["注册失败", false],
+        "403": ["用户被封禁", false],
+        "400": ["广告可发送", true],
+        "410": ["广告不可发送", false]
     ]
 }
 

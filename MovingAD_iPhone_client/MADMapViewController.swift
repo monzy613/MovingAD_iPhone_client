@@ -15,6 +15,7 @@ class MADMapViewController: UIViewController, MAMapViewDelegate, AMapLocationMan
     let APIKEY = AMAP_ApiKey
     var mapView: MAMapView?
     var locationManager: AMapLocationManager?
+    var currentLocation: CLLocation!
     var search: AMapSearchAPI?
     var advIDPolygonDictionary = [MAPolygon: Int]()
     var advID_contentDictionary = [Int: String]()
@@ -142,8 +143,8 @@ class MADMapViewController: UIViewController, MAMapViewDelegate, AMapLocationMan
                 print("no cityCode")
                 return
             }
-            _ = "\(MADURL.get_all_advs)/\(self.cityCode ?? "")"
-            MADNetwork.getPoints(url: MADURL.get_all_advs, onSuccess: {
+            //_ = "\(MADURL.get_all_advs)/\(self.cityCode ?? "")"
+            MADNetwork.getPoints(url: MADURL.get_advs(meter: 15000, lng: currentLocation.coordinate.longitude, lat: currentLocation.coordinate.latitude), onSuccess: {
                 advLocationDictionary, json in
                 for (adv_ID, locationArray) in advLocationDictionary {
                     self.advID_JSONDictionary[adv_ID] = json
@@ -158,6 +159,7 @@ class MADMapViewController: UIViewController, MAMapViewDelegate, AMapLocationMan
         //let amapcoord = MACoordinateConvert(location.coordinate, .GPS)
         //print("GPS->: \(location.coordinate)")
         //print("AMAP->: \(amapcoord)")
+        currentLocation = location
         if self.cityName == nil {
             getCurrentCity()
         }

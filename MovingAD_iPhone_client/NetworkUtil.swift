@@ -32,18 +32,20 @@ import Alamofire
  */
 
 class MADNetwork {
+    static var session: NSURLSessionConfiguration = NSURLSessionConfiguration.defaultSessionConfiguration()
+
     static func Post(url url: String, parameters: [String: String]?, onSuccess: String -> Void, onFailure: String -> Void) {
         print("PostURL: \(url)")
+
         Alamofire.request(.POST, url, parameters: parameters).responseJSON {
             response in
             let json = JSON(response.result.value ?? [])
-            print("json: \(json)")
             if let _ = response.result.error {
                 print("error")
                 onFailure("000")
                 return
             }
-            if let statusInt = json["status"].int {
+            if let statusInt = json["status"].string {
                 let statusCode = "\(statusInt)"
                 if let tuple = MADURL.statusCodeDictionary[statusCode] {
                     if tuple[1] as! Bool {
@@ -67,6 +69,88 @@ class MADNetwork {
                 }
             default:
                 break
+            }
+        }
+    }
+
+
+    static func Get(url url: String, parameters: [String: String]?, onSuccess: String -> Void, onFailure: String -> Void) {
+        print("PostURL: \(url)")
+
+        Alamofire.request(.GET, url, parameters: parameters).responseJSON {
+            response in
+            let json = JSON(response.result.value ?? [])
+            if let _ = response.result.error {
+                print("error")
+                onFailure("000")
+                return
+            }
+            if let statusInt = json["status"].string {
+                let statusCode = "\(statusInt)"
+                if let tuple = MADURL.statusCodeDictionary[statusCode] {
+                    if tuple[1] as! Bool {
+                        onSuccess(MADURL.statusCodeDictionary[statusCode]![0] as! String)
+                    } else {
+                        onFailure(MADURL.statusCodeDictionary[statusCode]![0] as! String)
+                    }
+                } else {
+                    onFailure(MADURL.statusCodeDictionary["000"]![0] as! String)
+                }
+            } else {
+                onFailure(MADURL.statusCodeDictionary["000"]![0] as! String)
+            }
+
+            switch url {
+            case MADURL.login:
+                if let userInfo = json["userinfo"].array {
+                    print(userInfo)
+                } else {
+                    print("no userinfo")
+                }
+            default:
+                break
+            }
+        }
+    }
+
+
+    class func get(
+        withURL url: String,
+                parameters: [String: AnyObject]?,
+                success: ((JSON) -> (Void))?,
+                failure: ((NSError) -> (Void))?) {
+        Alamofire.request(.GET, url).responseJSON {
+            res in
+            print(url)
+            if let error = res.result.error {
+                if let failure = failure {
+                    failure(error)
+                }
+            } else {
+                let json = JSON(res.result.value ?? [])
+                if let success = success {
+                    success(json)
+                }
+            }
+        }
+    }
+
+    class func post(
+        withURL url: String,
+                parameters: [String: AnyObject]?,
+                success: ((JSON) -> (Void))?,
+                failure: ((NSError) -> (Void))?) {
+        Alamofire.request(.POST, url, parameters: parameters).responseJSON {
+            res in
+            if let error = res.result.error {
+                if let failure = failure {
+                    failure(error)
+                }
+            } else {
+                let json = JSON(res.result.value ?? [])
+                if let success = success {
+                    success(json)
+                }
             }
         }
     }
@@ -102,5 +186,34 @@ class MADNetwork {
             onSuccess(advLocationDic, json)
         }
     }
-    
+
+
+    static func post(withURL url: String, parameters: [String: AnyObject]?, completion: (JSON) -> (Void)) {
+        session.HTTPAdditionalHeaders = ["driver_account_id": 2]
+        let manager = Alamofire.Manager(configuration: session)
+        manager.request(.POST, url, parameters: parameters).responseJSON {
+            res in
+            if let error = res.result.error {
+                print(error)
+            } else {
+                let json = JSON(res.result.value ?? [])
+                completion(json)
+            }
+        }
+    }
+
+    static func get(url url: String, completion: ((JSON) -> ())?) {
+        let url = NSURL(string: url)
+        let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
+            if error != nil {
+                print(error)
+            } else {
+                let json = JSON(data: data ?? NSData())
+                print(json)
+                completion?(json)
+            }
+        }
+        task.resume()
+    }
+
 }

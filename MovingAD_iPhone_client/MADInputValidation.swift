@@ -8,6 +8,8 @@
 
 import Foundation
 
+private let verifyCodeCount = 4
+
 class MADInputValidation {
     enum MADInputValidationResult: String {
         case Valid = "valid"
@@ -22,7 +24,10 @@ class MADInputValidation {
         case PasswordConfirmFail = "两次输入密码不一致"
         
         //verify code
-        case VerifyNumberInvalid = "请输入正确6位验证码"
+        case VerifyNumberInvalid = "请输入正确4位验证码"
+
+        //id code
+        case IDCodeInvalid = "请输入正确的身份证"
     }
     
     class func phoneNumber(phonenumber no: String?) -> MADInputValidationResult {
@@ -46,6 +51,18 @@ class MADInputValidation {
         } else {
             return .PhoneNumberEmpty
         }
+    }
+
+    class func idCode(code code: String?) -> MADInputValidationResult {
+        if let code = code {
+            let pattern = "(^\\d{15}$)|(^\\d{17}([0-9]|X)$)"
+
+            let isValid = code.rangeOfString(pattern, options: .RegularExpressionSearch)
+            if isValid != nil && code.length <= 18 {
+                return .Valid
+            }
+        }
+        return .IDCodeInvalid
     }
     
     class func password(pwd1 pwd1: String?, pwd2: String?) -> MADInputValidationResult {
@@ -79,7 +96,7 @@ class MADInputValidation {
     
     class func verifyNumber(verifyNumber no: String?) -> MADInputValidationResult {
         if let no = no {
-            if no.length == 6 {
+            if no.length == verifyCodeCount {
                 return .Valid
             }
         }

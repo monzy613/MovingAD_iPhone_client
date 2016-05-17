@@ -8,5 +8,7 @@ target 'MovingAD_iPhone_client' do
 	pod 'AMap2DMap'
 	pod 'AMapSearch'
 	pod 'AMapLocation'
+	pod 'BUKImagePickerController'
+	pod 'BUKPhotoEditViewController'
 end
 
