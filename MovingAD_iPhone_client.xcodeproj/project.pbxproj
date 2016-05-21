@@ -58,7 +58,6 @@
 		F4ECFF421C9EBFD40023DBF8 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ECFF411C9EBFD40023DBF8 /* SwiftyJSON.swift */; };
 		F4EF90A41CA40AB000711D23 /* MADInputValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EF90A31CA40AB000711D23 /* MADInputValidation.swift */; };
 		F4F1B7861CA42041006C6C23 /* MADNewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F1B7851CA42041006C6C23 /* MADNewUserViewController.swift */; };
-		F4FBF0651CA2DB290071CE11 /* MADDriverInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FBF0641CA2DB290071CE11 /* MADDriverInfoViewController.swift */; };
 		F4FBF0731CA2EB110071CE11 /* MADUploadLicenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FBF0721CA2EB110071CE11 /* MADUploadLicenceViewController.swift */; };
 		F4FBF0751CA2EE0B0071CE11 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FBF0741CA2EE0B0071CE11 /* ViewController.swift */; };
 		F4FBF0771CA2EE230071CE11 /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FBF0761CA2EE230071CE11 /* Definitions.swift */; };
@@ -125,7 +124,6 @@
 		F4EF90A31CA40AB000711D23 /* MADInputValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MADInputValidation.swift; sourceTree = "<group>"; };
 		F4EF90B11CA4195300711D23 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		F4F1B7851CA42041006C6C23 /* MADNewUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MADNewUserViewController.swift; sourceTree = "<group>"; };
-		F4FBF0641CA2DB290071CE11 /* MADDriverInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MADDriverInfoViewController.swift; sourceTree = "<group>"; };
 		F4FBF0721CA2EB110071CE11 /* MADUploadLicenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MADUploadLicenceViewController.swift; sourceTree = "<group>"; };
 		F4FBF0741CA2EE0B0071CE11 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F4FBF0761CA2EE230071CE11 /* Definitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Definitions.swift; sourceTree = "<group>"; };
@@ -227,7 +225,6 @@
 				F43162971CEB4C390021E3E9 /* MADForgetPasswordViewController.swift */,
 				F48092D01C9EF77D00A0046A /* MADRegisterViewController.swift */,
 				F4FBF0781CA2F4FF0071CE11 /* MADHomeViewController.swift */,
-				F4FBF0641CA2DB290071CE11 /* MADDriverInfoViewController.swift */,
 				F4FBF0721CA2EB110071CE11 /* MADUploadLicenceViewController.swift */,
 				F4F1B7851CA42041006C6C23 /* MADNewUserViewController.swift */,
 				F48D773A1CB67780004BF2FC /* MADMapViewController.swift */,
@@ -460,7 +457,6 @@
 				F4ECFF2B1C9EBF960023DBF8 /* DesignableTabBarController.swift in Sources */,
 				F4ECFF261C9EBF960023DBF8 /* AutoTextView.swift in Sources */,
 				F48092D31C9EFCA800A0046A /* URLs.swift in Sources */,
-				F4FBF0651CA2DB290071CE11 /* MADDriverInfoViewController.swift in Sources */,
 				F4FBF0731CA2EB110071CE11 /* MADUploadLicenceViewController.swift in Sources */,
 				F4F1B7861CA42041006C6C23 /* MADNewUserViewController.swift in Sources */,
 				F4ECFF2D1C9EBF960023DBF8 /* DesignableTextView.swift in Sources */,

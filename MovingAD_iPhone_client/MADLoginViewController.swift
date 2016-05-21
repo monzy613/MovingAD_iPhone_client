@@ -66,7 +66,10 @@ class MADLoginViewController: UIViewController, UITextFieldDelegate {
                     MADUserInfo.currentUserInfo = MADUserInfo(json: json)
                     self.hud?.hideHUD(withText: "登录成功", andDelay: 0.3)
                     self.performSegueWithIdentifier("LoginSuccessSegue", sender: self)
-
+                    Alamofire.request(.GET, MADURL.get_records, parameters: nil).responseJSON(completionHandler: { (res) in
+                        let json = JSON(res.result.value ?? [])
+                        print(json)
+                    })
             }
         } else {
             MBProgressHUD.validationHUD(withView: view, text: "请输入正确手机号和密码")

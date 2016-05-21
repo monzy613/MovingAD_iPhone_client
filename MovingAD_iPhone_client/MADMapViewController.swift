@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreBluetooth
+import Alamofire
 
 class MADMapViewController: UIViewController, MAMapViewDelegate, AMapLocationManagerDelegate, AMapSearchDelegate, CBPeripheralManagerDelegate, CBCentralManagerDelegate, CBPeripheralDelegate  {
 
@@ -109,13 +110,31 @@ class MADMapViewController: UIViewController, MAMapViewDelegate, AMapLocationMan
                 let adv_ID = self.advIDPolygonDictionary[polygon] ?? -1
                 print("polygon's adv_ID: \(adv_ID)")
                 adJson = advID_JSONDictionary[adv_ID]
-                sendAdJson()
                 self.isInArea = true
                 let alert = UIAlertController(title: "adv_ID: \(adv_ID)", message: "city:\(self.cityName ?? "nil") \nadvContent:", preferredStyle: .Alert)
                 alert.addAction(UIAlertAction(title: "ok", style: .Default) {
                     action in
                 })
                 self.presentViewController(alert, animated: true, completion: nil)
+                //sendAdJson()
+                Alamofire.request(.GET, MADURL.post_adv(adv_ID), parameters: nil).responseJSON{ (res) in
+                    let json = JSON(res.result.value ?? [])
+                    if let error = res.result.error {
+                        print(error)
+                        return
+                    }
+                    if let status = json["status"].string {
+                        if status == "430" {
+                            print("Wrong time")
+                        } else if status == "420" {
+                            print("too frequent")
+                        } else if status == "410" {
+                            print("failed")
+                        } else if status == "400" {
+                            self.sendAdJson()
+                        }
+                    }
+                }
             }
             return polygonView
         }

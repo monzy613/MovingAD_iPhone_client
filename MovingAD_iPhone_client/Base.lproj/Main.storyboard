@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F31a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2DD-ZX-DE3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2DD-ZX-DE3">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -488,96 +488,10 @@
             </objects>
             <point key="canvasLocation" x="1092.5" y="-52.5"/>
         </scene>
-        <!--证件照上传-->
-        <scene sceneID="kJp-TD-BYN">
-            <objects>
-                <viewController id="uWV-fd-KaN" customClass="MADUploadLicenceViewController" customModule="MovingAD_iPhone_client" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Auc-fy-bU9"/>
-                        <viewControllerLayoutGuide type="bottom" id="i2J-g1-zO1"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="s8w-VF-Yck">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="movingAD" translatesAutoresizingMaskIntoConstraints="NO" id="1wd-IT-rcD">
-                                <rect key="frame" x="16" y="375" width="162" height="125"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="1wd-IT-rcD" secondAttribute="height" multiplier="48:37" id="eWl-MT-OIH"/>
-                                </constraints>
-                            </imageView>
-                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="movingAD" translatesAutoresizingMaskIntoConstraints="NO" id="Ut2-tm-a3x">
-                                <rect key="frame" x="197" y="375" width="162" height="125"/>
-                            </imageView>
-                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="movingAD" translatesAutoresizingMaskIntoConstraints="NO" id="hkf-iC-qoX">
-                                <rect key="frame" x="16" y="100" width="343" height="240"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="hkf-iC-qoX" secondAttribute="height" multiplier="343:239" id="lto-Cv-UR6"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="车辆照片" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hA1-0q-bfD">
-                                <rect key="frame" x="20" y="72" width="335" height="20"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="行驶证(蓝本)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vDW-em-Xnp">
-                                <rect key="frame" x="16" y="347" width="79" height="20"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="驾驶证(黑本)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ldq-ia-a8W">
-                                <rect key="frame" x="198" y="347" width="79" height="20"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="hA1-0q-bfD" firstAttribute="leading" secondItem="s8w-VF-Yck" secondAttribute="leadingMargin" constant="4" id="719-X5-ELV"/>
-                            <constraint firstItem="Ut2-tm-a3x" firstAttribute="width" secondItem="1wd-IT-rcD" secondAttribute="width" id="8B7-IC-3Nb"/>
-                            <constraint firstItem="Ldq-ia-a8W" firstAttribute="top" secondItem="hkf-iC-qoX" secondAttribute="bottom" constant="8" id="8Xh-ZV-PVl"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="hA1-0q-bfD" secondAttribute="trailing" constant="4" id="BrN-Fc-muR"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="hkf-iC-qoX" secondAttribute="trailing" id="DI5-7T-Bq4"/>
-                            <constraint firstItem="vDW-em-Xnp" firstAttribute="top" secondItem="hkf-iC-qoX" secondAttribute="bottom" constant="8" id="Ea2-1l-0vO"/>
-                            <constraint firstItem="Ut2-tm-a3x" firstAttribute="leading" secondItem="1wd-IT-rcD" secondAttribute="trailing" constant="20" id="QBO-j6-4g6"/>
-                            <constraint firstItem="Ut2-tm-a3x" firstAttribute="top" secondItem="Ldq-ia-a8W" secondAttribute="bottom" constant="8" id="QEA-Wr-zsY"/>
-                            <constraint firstItem="Ut2-tm-a3x" firstAttribute="height" secondItem="1wd-IT-rcD" secondAttribute="height" id="TBB-g3-wL2"/>
-                            <constraint firstItem="1wd-IT-rcD" firstAttribute="leading" secondItem="hkf-iC-qoX" secondAttribute="leading" id="UcZ-tg-dsL"/>
-                            <constraint firstItem="Ldq-ia-a8W" firstAttribute="trailing" secondItem="hkf-iC-qoX" secondAttribute="trailing" id="Xfp-qp-exF"/>
-                            <constraint firstItem="hkf-iC-qoX" firstAttribute="centerX" secondItem="s8w-VF-Yck" secondAttribute="centerX" id="YZP-E8-Q3V"/>
-                            <constraint firstItem="Ldq-ia-a8W" firstAttribute="leading" secondItem="Ut2-tm-a3x" secondAttribute="leading" id="bKh-QN-Vqo"/>
-                            <constraint firstItem="hkf-iC-qoX" firstAttribute="leading" secondItem="s8w-VF-Yck" secondAttribute="leadingMargin" id="dNs-5F-LET"/>
-                            <constraint firstItem="1wd-IT-rcD" firstAttribute="top" secondItem="vDW-em-Xnp" secondAttribute="bottom" constant="8" id="eBv-nI-I4P"/>
-                            <constraint firstItem="hkf-iC-qoX" firstAttribute="top" secondItem="hA1-0q-bfD" secondAttribute="bottom" constant="8" id="iCF-fd-Kej"/>
-                            <constraint firstItem="vDW-em-Xnp" firstAttribute="leading" secondItem="hkf-iC-qoX" secondAttribute="leading" id="nJA-Mo-YNA"/>
-                            <constraint firstItem="Ut2-tm-a3x" firstAttribute="trailing" secondItem="hkf-iC-qoX" secondAttribute="trailing" id="qe0-q6-hiR"/>
-                            <constraint firstItem="vDW-em-Xnp" firstAttribute="top" secondItem="hkf-iC-qoX" secondAttribute="bottom" constant="7.5" id="vyN-wm-Twj"/>
-                            <constraint firstItem="hA1-0q-bfD" firstAttribute="top" secondItem="Auc-fy-bU9" secondAttribute="bottom" constant="8" id="xFb-GP-3UB"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="YZP-E8-Q3V"/>
-                                <exclude reference="vyN-wm-Twj"/>
-                                <exclude reference="Xfp-qp-exF"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <navigationItem key="navigationItem" title="证件照上传" id="7OI-Z0-pPq">
-                        <barButtonItem key="rightBarButtonItem" title="申请认证" id="jad-A1-HTn"/>
-                    </navigationItem>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="akm-Js-bF6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1534.5" y="739.5"/>
-        </scene>
-        <!--个人信息登记-->
+        <!--我的钱包-->
         <scene sceneID="we9-I1-KGf">
             <objects>
-                <viewController id="tRP-CA-imd" customClass="MADDriverInfoViewController" customModule="MovingAD_iPhone_client" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="tRP-CA-imd" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hk1-QX-KNL"/>
                         <viewControllerLayoutGuide type="bottom" id="vbC-gH-PsI"/>
@@ -586,220 +500,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="姓名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AAX-T3-8vt" customClass="DesignableTextField" customModule="MovingAD_iPhone_client" customModuleProvider="target">
-                                <rect key="frame" x="16" y="98" width="343" height="51"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="余额： 0.00 元" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uDg-nU-d0E">
+                                <rect key="frame" x="131" y="181" width="112" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Yn-mw-boC" customClass="DesignableButton" customModule="MovingAD_iPhone_client" customModuleProvider="target">
+                                <rect key="frame" x="127" y="227" width="120" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="AAX-T3-8vt" secondAttribute="height" multiplier="349:52" id="8hn-Jm-7l0"/>
-                                    <constraint firstAttribute="width" secondItem="AAX-T3-8vt" secondAttribute="height" multiplier="349:51" id="9i6-bn-gD4"/>
-                                    <constraint firstAttribute="width" secondItem="AAX-T3-8vt" secondAttribute="height" multiplier="343:50" id="ibQ-5U-xm5"/>
+                                    <constraint firstAttribute="width" constant="120" id="Jqv-ki-BET"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="16"/>
-                                <textInputTraits key="textInputTraits" spellCheckingType="no"/>
+                                <state key="normal" title="提现"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="value" red="0.0" green="0.47450980390000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="9i6-bn-gD4"/>
-                                        <exclude reference="ibQ-5U-xm5"/>
-                                    </mask>
-                                </variation>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="身份证号/驾驶证号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iRX-RC-goO" customClass="DesignableTextField" customModule="MovingAD_iPhone_client" customModuleProvider="target">
-                                <rect key="frame" x="16" y="184" width="343" height="52"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="iRX-RC-goO" secondAttribute="height" multiplier="343:50" id="WKa-JP-j9j"/>
-                                    <constraint firstAttribute="width" secondItem="iRX-RC-goO" secondAttribute="height" multiplier="349:51" id="mzz-B8-F62"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="16"/>
-                                <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="phonePad"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="WKa-JP-j9j"/>
-                                        <exclude reference="mzz-B8-F62"/>
-                                    </mask>
-                                </variation>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="姓名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Iw-v4-Sln">
-                                <rect key="frame" x="16" y="74" width="343" height="20"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="身份证号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WEI-hB-U6N">
-                                <rect key="frame" x="16" y="157" width="343" height="20"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="s2Q-fJ-MOd">
-                                <rect key="frame" x="16" y="359" width="343" height="52"/>
-                                <date key="date" timeIntervalSinceReferenceDate="480434114.493294">
-                                    <!--2016-03-23 13:55:14 +0000-->
-                                </date>
-                                <connections>
-                                    <action selector="drivingLicenceSignDateChosen:" destination="tRP-CA-imd" eventType="valueChanged" id="iWI-fI-Zeb"/>
-                                </connections>
-                            </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="驾照签发日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2La-CH-9DZ">
-                                <rect key="frame" x="16" y="331" width="343" height="20"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="驾照到期日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbb-hR-cgR">
-                                <rect key="frame" x="16" y="419" width="343" height="20"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="KM8-sM-57p">
-                                <rect key="frame" x="16" y="447" width="343" height="52"/>
-                                <date key="date" timeIntervalSinceReferenceDate="480434114.493294">
-                                    <!--2016-03-23 13:55:14 +0000-->
-                                </date>
-                                <connections>
-                                    <action selector="drivingLicenceDueDateChosen:" destination="tRP-CA-imd" eventType="valueChanged" id="L4v-8j-gG9"/>
-                                </connections>
-                            </datePicker>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="车牌号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Che-3L-FsC" customClass="DesignableTextField" customModule="MovingAD_iPhone_client" customModuleProvider="target">
-                                <rect key="frame" x="16" y="272" width="343" height="51"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Che-3L-FsC" secondAttribute="height" multiplier="349:51" id="3JL-dw-iWy"/>
-                                    <constraint firstAttribute="width" secondItem="Che-3L-FsC" secondAttribute="height" multiplier="343:50" id="hpK-Bb-QjW"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="16"/>
-                                <textInputTraits key="textInputTraits" spellCheckingType="no"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="3JL-dw-iWy"/>
-                                        <exclude reference="hpK-Bb-QjW"/>
-                                    </mask>
-                                </variation>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="车牌号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="18h-0o-lwY">
-                                <rect key="frame" x="16" y="244" width="343" height="20"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" alpha="0.60000002384185791" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ECD-15-iSL" customClass="DesignableButton" customModule="MovingAD_iPhone_client" customModuleProvider="target">
-                                <rect key="frame" x="16" y="512" width="343" height="37"/>
-                                <color key="backgroundColor" red="0.51764705882352946" green="0.50196078431372548" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="ECD-15-iSL" secondAttribute="height" multiplier="343:43" id="NC9-tu-CQh"/>
-                                    <constraint firstAttribute="width" secondItem="ECD-15-iSL" secondAttribute="height" multiplier="343:37" id="U5m-RH-glU"/>
-                                    <constraint firstAttribute="width" secondItem="ECD-15-iSL" secondAttribute="height" multiplier="349:43" id="ssK-Vu-qRJ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="18"/>
-                                <state key="normal" title="上传证件照">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="NC9-tu-CQh"/>
-                                        <exclude reference="ssK-Vu-qRJ"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <action selector="sendVerifyCodeButtonPressed:" destination="PCh-Bf-iQR" eventType="touchUpInside" id="WKW-AD-gKn"/>
-                                    <segue destination="uWV-fd-KaN" kind="show" id="ugk-ZW-QfD"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="KM8-sM-57p" firstAttribute="width" secondItem="AAX-T3-8vt" secondAttribute="width" id="0nf-TK-pYy"/>
-                            <constraint firstItem="iRX-RC-goO" firstAttribute="width" secondItem="AAX-T3-8vt" secondAttribute="width" id="3Fb-cl-Z6T"/>
-                            <constraint firstItem="AAX-T3-8vt" firstAttribute="top" secondItem="0Iw-v4-Sln" secondAttribute="bottom" constant="4.5" id="3Je-o7-YIA"/>
-                            <constraint firstItem="18h-0o-lwY" firstAttribute="height" secondItem="WEI-hB-U6N" secondAttribute="height" id="6OW-04-jXW"/>
-                            <constraint firstItem="2La-CH-9DZ" firstAttribute="height" secondItem="18h-0o-lwY" secondAttribute="height" id="7EL-cR-6c5"/>
-                            <constraint firstItem="Che-3L-FsC" firstAttribute="leading" secondItem="AAX-T3-8vt" secondAttribute="leading" id="8Bp-hJ-5Lq"/>
-                            <constraint firstItem="AAX-T3-8vt" firstAttribute="centerX" secondItem="Nht-Tp-c84" secondAttribute="centerX" id="8aR-1U-AMj"/>
-                            <constraint firstItem="2La-CH-9DZ" firstAttribute="top" secondItem="Che-3L-FsC" secondAttribute="bottom" constant="8" id="9Qq-gj-1iZ"/>
-                            <constraint firstItem="0Iw-v4-Sln" firstAttribute="leading" secondItem="Nht-Tp-c84" secondAttribute="leadingMargin" id="9aX-kb-e3i"/>
-                            <constraint firstItem="ECD-15-iSL" firstAttribute="top" secondItem="KM8-sM-57p" secondAttribute="bottom" constant="13" id="AI9-Xs-HGU"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ECD-15-iSL" secondAttribute="trailing" id="ATK-MY-h9G"/>
-                            <constraint firstItem="KM8-sM-57p" firstAttribute="top" secondItem="lbb-hR-cgR" secondAttribute="bottom" constant="8" id="AXc-hT-yvV"/>
-                            <constraint firstItem="s2Q-fJ-MOd" firstAttribute="top" secondItem="2La-CH-9DZ" secondAttribute="bottom" constant="8" id="D7Z-sH-6Ii"/>
-                            <constraint firstItem="lbb-hR-cgR" firstAttribute="width" secondItem="2La-CH-9DZ" secondAttribute="width" id="JDV-s5-ICh"/>
-                            <constraint firstItem="ECD-15-iSL" firstAttribute="leading" secondItem="Nht-Tp-c84" secondAttribute="leadingMargin" id="Kj1-Me-st4"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="0Iw-v4-Sln" secondAttribute="trailing" id="LWG-8v-OsA"/>
-                            <constraint firstItem="lbb-hR-cgR" firstAttribute="top" secondItem="s2Q-fJ-MOd" secondAttribute="bottom" constant="8" id="MOg-lY-rKi"/>
-                            <constraint firstItem="2La-CH-9DZ" firstAttribute="leading" secondItem="18h-0o-lwY" secondAttribute="leading" id="Mt8-Ed-4SG"/>
-                            <constraint firstItem="WEI-hB-U6N" firstAttribute="top" secondItem="AAX-T3-8vt" secondAttribute="bottom" constant="8" id="PNx-tw-sNL"/>
-                            <constraint firstItem="18h-0o-lwY" firstAttribute="width" secondItem="WEI-hB-U6N" secondAttribute="width" id="R1c-KS-aYI"/>
-                            <constraint firstItem="iRX-RC-goO" firstAttribute="top" secondItem="WEI-hB-U6N" secondAttribute="bottom" constant="8" id="Sxm-VT-W5Y"/>
-                            <constraint firstItem="Che-3L-FsC" firstAttribute="width" secondItem="AAX-T3-8vt" secondAttribute="width" id="ThY-zM-vkx"/>
-                            <constraint firstItem="Che-3L-FsC" firstAttribute="height" secondItem="AAX-T3-8vt" secondAttribute="height" id="UkO-D2-HIz"/>
-                            <constraint firstItem="0Iw-v4-Sln" firstAttribute="top" secondItem="hk1-QX-KNL" secondAttribute="bottom" constant="10" id="Vav-RM-CQf"/>
-                            <constraint firstItem="18h-0o-lwY" firstAttribute="leading" secondItem="WEI-hB-U6N" secondAttribute="leading" id="WcX-jf-Qhg"/>
-                            <constraint firstItem="Che-3L-FsC" firstAttribute="top" secondItem="18h-0o-lwY" secondAttribute="bottom" constant="8" id="bru-FQ-DKa"/>
-                            <constraint firstItem="vbC-gH-PsI" firstAttribute="top" secondItem="ECD-15-iSL" secondAttribute="bottom" constant="8" id="cMd-RL-3Uc"/>
-                            <constraint firstItem="lbb-hR-cgR" firstAttribute="height" secondItem="2La-CH-9DZ" secondAttribute="height" id="hQr-dw-rt0"/>
-                            <constraint firstItem="KM8-sM-57p" firstAttribute="leading" secondItem="AAX-T3-8vt" secondAttribute="leading" id="j0L-yh-ahG"/>
-                            <constraint firstItem="iRX-RC-goO" firstAttribute="height" secondItem="AAX-T3-8vt" secondAttribute="height" id="jDx-JG-G9W"/>
-                            <constraint firstItem="s2Q-fJ-MOd" firstAttribute="width" secondItem="AAX-T3-8vt" secondAttribute="width" id="jRt-wT-mxk"/>
-                            <constraint firstItem="iRX-RC-goO" firstAttribute="leading" secondItem="AAX-T3-8vt" secondAttribute="leading" id="lza-fH-nW3"/>
-                            <constraint firstItem="WEI-hB-U6N" firstAttribute="height" secondItem="0Iw-v4-Sln" secondAttribute="height" id="mSF-p0-Naj"/>
-                            <constraint firstItem="WEI-hB-U6N" firstAttribute="width" secondItem="0Iw-v4-Sln" secondAttribute="width" id="nlK-GV-nN2"/>
-                            <constraint firstItem="lbb-hR-cgR" firstAttribute="leading" secondItem="2La-CH-9DZ" secondAttribute="leading" id="oLe-zT-88f"/>
-                            <constraint firstItem="s2Q-fJ-MOd" firstAttribute="leading" secondItem="AAX-T3-8vt" secondAttribute="leading" id="pYP-gQ-Vyp"/>
-                            <constraint firstItem="2La-CH-9DZ" firstAttribute="width" secondItem="18h-0o-lwY" secondAttribute="width" id="tNQ-Z0-CQA"/>
-                            <constraint firstItem="KM8-sM-57p" firstAttribute="height" secondItem="AAX-T3-8vt" secondAttribute="height" id="trJ-dO-kA1"/>
-                            <constraint firstItem="WEI-hB-U6N" firstAttribute="leading" secondItem="0Iw-v4-Sln" secondAttribute="leading" id="uGJ-gK-HZh"/>
-                            <constraint firstItem="18h-0o-lwY" firstAttribute="top" secondItem="iRX-RC-goO" secondAttribute="bottom" constant="8" id="xFO-NO-AHU"/>
-                            <constraint firstItem="AAX-T3-8vt" firstAttribute="width" secondItem="0Iw-v4-Sln" secondAttribute="width" id="yS6-Fg-iTT"/>
-                            <constraint firstItem="s2Q-fJ-MOd" firstAttribute="height" secondItem="AAX-T3-8vt" secondAttribute="height" id="yk6-bz-uYc"/>
+                            <constraint firstItem="uDg-nU-d0E" firstAttribute="centerX" secondItem="4Yn-mw-boC" secondAttribute="centerX" id="Ae0-co-uQx"/>
+                            <constraint firstItem="4Yn-mw-boC" firstAttribute="top" secondItem="uDg-nU-d0E" secondAttribute="bottom" constant="25" id="EKo-aA-giT"/>
+                            <constraint firstItem="uDg-nU-d0E" firstAttribute="top" secondItem="hk1-QX-KNL" secondAttribute="bottom" constant="117" id="FkR-cN-Lon"/>
+                            <constraint firstItem="vbC-gH-PsI" firstAttribute="top" secondItem="4Yn-mw-boC" secondAttribute="bottom" constant="351" id="T7S-x7-ddT"/>
+                            <constraint firstItem="uDg-nU-d0E" firstAttribute="centerX" secondItem="Nht-Tp-c84" secondAttribute="centerX" id="Wnu-We-GFY"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="cMd-RL-3Uc"/>
-                            </mask>
-                        </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="个人信息登记" id="sDd-zs-3f1">
+                    <navigationItem key="navigationItem" title="我的钱包" id="sDd-zs-3f1">
                         <barButtonItem key="rightBarButtonItem" title="退出登录" id="GUb-pK-7d0">
                             <color key="tintColor" red="0.95983892679214478" green="0.070271365344524384" blue="0.096085719764232635" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
@@ -808,14 +543,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <connections>
-                        <outlet property="drivingLicenceDueDate" destination="lbb-hR-cgR" id="IbZ-yB-qGv"/>
-                        <outlet property="drivingLicenceLabel" destination="2La-CH-9DZ" id="6lt-7J-JdV"/>
-                        <outlet property="identityLabel" destination="WEI-hB-U6N" id="t7g-4x-ByV"/>
-                        <outlet property="identityTextField" destination="iRX-RC-goO" id="Ajn-eo-pgK"/>
-                        <outlet property="nameLabel" destination="0Iw-v4-Sln" id="1Us-kM-VNj"/>
-                        <outlet property="nameTextField" destination="AAX-T3-8vt" id="9J5-Gu-myW"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JVA-z4-LZx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

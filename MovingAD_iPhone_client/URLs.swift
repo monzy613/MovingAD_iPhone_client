@@ -62,6 +62,16 @@ class MADURL {
             return "\(MADURL.baseURL)/app/check_login_code/"
         }
     }
+
+    class func post_adv<T>(adv_ID: T) -> String {
+        return "\(MADURL.baseURL)/app/post_adv/\(adv_ID)/"
+    }
+
+    class var get_records: String {
+        get {
+            return "\(MADURL.baseURL)/app/get_records/"
+        }
+    }
     
     
     //parameters
