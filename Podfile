@@ -5,6 +5,8 @@ target 'MovingAD_iPhone_client' do
 	pod 'Alamofire'
 	pod 'pop'
 	pod 'MBProgressHUD'
+	pod 'SnapKit'
+	pod 'SDWebImage'
 	pod 'AMap2DMap'
 	pod 'AMapSearch'
 	pod 'AMapLocation'

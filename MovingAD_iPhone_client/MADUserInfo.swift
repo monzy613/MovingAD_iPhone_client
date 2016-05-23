@@ -12,7 +12,7 @@ import Foundation
 class MADUserInfo {
     var name: String?
     var phone: String?
-    var account_money: Float?
+    var account_money: Float = 0.0
     var account_ID: String?
 
     static var currentUserInfo: MADUserInfo?
@@ -20,7 +20,7 @@ class MADUserInfo {
     init(json: JSON) {
         name = json["user_name"].string
         phone = json["phone"].string
-        account_money = json["account_money"].float
+        account_money = json["account_money"].float ?? 0.0
         account_ID = json["account_ID"].string
     }
 }

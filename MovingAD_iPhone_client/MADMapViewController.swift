@@ -9,6 +9,9 @@
 import UIKit
 import CoreBluetooth
 import Alamofire
+import SDWebImage
+
+private let adLength: NSTimeInterval = 3.0
 
 class MADMapViewController: UIViewController, MAMapViewDelegate, AMapLocationManagerDelegate, AMapSearchDelegate, CBPeripheralManagerDelegate, CBCentralManagerDelegate, CBPeripheralDelegate  {
 
@@ -21,9 +24,14 @@ class MADMapViewController: UIViewController, MAMapViewDelegate, AMapLocationMan
     var advIDPolygonDictionary = [MAPolygon: Int]()
     var advID_contentDictionary = [Int: String]()
     var advID_JSONDictionary = [Int: JSON]()
+    var adArray: [MADAd]?
+    var adIDPolygonDictionary = [Int: UnsafeMutablePointer<MAMapPoint>]()
+    var currentAdIndex = 0
+    var advertisingTimer: NSTimer!
     var isInArea = false
     var cityName: String?
     var cityCode: String?
+    var adView: MADAdView?
 
     // MARK: bluetooth properties
     var discoveredPeripheral: CBPeripheral?
@@ -41,6 +49,7 @@ class MADMapViewController: UIViewController, MAMapViewDelegate, AMapLocationMan
         //init bluetooth matters
         peripheralManager = CBPeripheralManager(delegate: self, queue: nil)
         centralManager = CBCentralManager(delegate: self, queue: nil)
+        adArray = [MADAd]()
 
         // init map matters
         if CLLocationManager.locationServicesEnabled() &&
@@ -86,8 +95,13 @@ class MADMapViewController: UIViewController, MAMapViewDelegate, AMapLocationMan
             coordinates.append(location.coordinate)
         }
         let polygon = MAPolygon(coordinates: &coordinates, count: UInt(coordinates.count))
-        self.advIDPolygonDictionary[polygon] = adv_ID
+        adIDPolygonDictionary[adv_ID] = polygon.points
         mapView?.addOverlay(polygon)
+    }
+
+    func addCircle(location: CLLocation, radius: CLLocationDistance, adv_ID: Int) {
+        let circle = MACircle(centerCoordinate: location.coordinate, radius: radius)
+        mapView?.addOverlay(circle)
     }
 
     //MARK: MAMapViewDelegate Methods
@@ -100,48 +114,21 @@ class MADMapViewController: UIViewController, MAMapViewDelegate, AMapLocationMan
             polygonView.fillColor = UIColor(hex6: 0xACAAF3)
             polygonView.alpha = 0.1
             polygonView.lineJoin = .Miter
-
-            let userMapPoint = MAMapPointForCoordinate(self.mapView!.userLocation.coordinate)
-            let polygonPoints = polygon.points
-            let contains = MAPolygonContainsPoint(userMapPoint, polygonPoints, polygon.pointCount)
-            let showAlert = (contains == true && self.isInArea == false)
-
-            if showAlert {
-                let adv_ID = self.advIDPolygonDictionary[polygon] ?? -1
-                print("polygon's adv_ID: \(adv_ID)")
-                adJson = advID_JSONDictionary[adv_ID]
-                self.isInArea = true
-                let alert = UIAlertController(title: "adv_ID: \(adv_ID)", message: "city:\(self.cityName ?? "nil") \nadvContent:", preferredStyle: .Alert)
-                alert.addAction(UIAlertAction(title: "ok", style: .Default) {
-                    action in
-                })
-                self.presentViewController(alert, animated: true, completion: nil)
-                //sendAdJson()
-                Alamofire.request(.GET, MADURL.post_adv(adv_ID), parameters: nil).responseJSON{ (res) in
-                    let json = JSON(res.result.value ?? [])
-                    if let error = res.result.error {
-                        print(error)
-                        return
-                    }
-                    if let status = json["status"].string {
-                        if status == "430" {
-                            print("Wrong time")
-                        } else if status == "420" {
-                            print("too frequent")
-                        } else if status == "410" {
-                            print("failed")
-                        } else if status == "400" {
-                            self.sendAdJson()
-                        }
-                    }
-                }
-            }
             return polygonView
+        } else if overlay.isKindOfClass(MACircle) {
+            let circle = overlay as! MACircle
+            let circleView = MACircleView(circle: circle)
+            circleView.lineWidth = 2.0
+            circleView.strokeColor = UIColor.darkGrayColor()
+            circleView.fillColor = UIColor(hex6: 0xACAAF3)
+            circleView.alpha = 0.1
+            circleView.lineJoin = .Miter
+            return circleView
         }
         return nil
     }
 
-    //MARK: AMapSearchDelegate Mathods
+    //MARK: AMapSearchDelegate Methods
     func onReGeocodeSearchDone(request: AMapReGeocodeSearchRequest!, response: AMapReGeocodeSearchResponse!) {
         if let regeocode = response.regeocode {
             if (regeocode.addressComponent.city == nil || regeocode.addressComponent.city == "") {
@@ -162,33 +149,118 @@ class MADMapViewController: UIViewController, MAMapViewDelegate, AMapLocationMan
                 print("no cityCode")
                 return
             }
-            //_ = "\(MADURL.get_all_advs)/\(self.cityCode ?? "")"
-            MADNetwork.getPoints(url: MADURL.get_advs(meter: 15000, lng: currentLocation.coordinate.longitude, lat: currentLocation.coordinate.latitude), onSuccess: {
-                advLocationDictionary, json in
-                for (adv_ID, locationArray) in advLocationDictionary {
-                    self.advID_JSONDictionary[adv_ID] = json
-                    self.addPolygon(locationArray, adv_ID: adv_ID)
+            Alamofire.request(.GET, MADURL.get_advs(meter: 30000, lng: currentLocation.coordinate.longitude, lat: currentLocation.coordinate.latitude), parameters: nil).responseJSON(completionHandler: { (res) in
+                let json = JSON(res.result.value ?? [])
+                if let adJSONArray = json.array {
+                    for adJSON in adJSONArray {
+                        let ad = MADAd(json: adJSON)
+                        if ad.type == .Polygon {
+                            self.addPolygon(ad.polygonPoints, adv_ID: ad.adv_ID)
+                        } else {
+                            for center in ad.centers {
+                                self.addCircle(center, radius: CLLocationDistance(ad.range), adv_ID: ad.adv_ID)
+                            }
+                        }
+                        self.adArray?.append(ad)
+                    }
+                    self.adArray?.sortInPlace{$0.money > $1.money}
                 }
-                }, onFailure: nil)
+            })
         }
     }
 
     //MARK: AMapLocationManagerDelegate Methods
     func amapLocationManager(manager: AMapLocationManager!, didUpdateLocation location: CLLocation!) {
-        //let amapcoord = MACoordinateConvert(location.coordinate, .GPS)
-        //print("GPS->: \(location.coordinate)")
-        //print("AMAP->: \(amapcoord)")
         currentLocation = location
         if self.cityName == nil {
             getCurrentCity()
+        } else {
+            startAdvertising()
         }
     }
 
+    // MARK: find whether user is in any area
+    func startAdvertising() {
+        if advertisingTimer != nil {
+            return
+        }
+        advertisingTimer = NSTimer.scheduledTimerWithTimeInterval(adLength, target: self, selector: #selector(advertising), userInfo: nil, repeats: true)
+        advertising()
+    }
 
+    func advertising() {
+        adView?.hide()
+        guard let ads = adArray else {
+            advertisingTimer.invalidate()
+            return
+        }
 
+        if currentAdIndex < ads.count {
+            let ad = ads[currentAdIndex]
+            let userMapPoint = MAMapPointForCoordinate(self.mapView!.userLocation.coordinate)
+            switch ad.type{
+            case .Polygon:
+                let polygonPoints = adIDPolygonDictionary[ad.adv_ID]!
+                let contains = MAPolygonContainsPoint(userMapPoint, polygonPoints, UInt(ad.polygonPoints.count))
+                if contains {
+                    showAd(ad)
+                }
+            case .Circles:
+                var contains = false
+                for center in ad.centers {
+                    if MACircleContainsPoint(MAMapPointForCoordinate(center.coordinate), userMapPoint, Double(ad.range)) {
+                        contains = true
+                        break
+                    }
+                }
+                if contains {
+                    showAd(ad)
+                }
+            }
+            currentAdIndex += 1
+        } else {
+            currentAdIndex = 0
+        }
+    }
+
+    func showAd(ad: MADAd) {
+        Alamofire.request(.GET, MADURL.post_adv(ad.adv_ID), parameters: nil).responseJSON{ (res) in
+            let json = JSON(res.result.value ?? [])
+            if let error = res.result.error {
+                print(error)
+                return
+            }
+            if let status = json["status"].string {
+                if status == "430" {
+                    print("Wrong time")
+                } else if status == "420" {
+                    print("too frequent")
+                } else if status == "410" {
+                    print("failed")
+                } else if status == "400" {
+                    print("right time")
+                    MADUserInfo.currentUserInfo?.account_money += ad.money
+                    self.adView = MADAdView(frame: CGRectMake(0, 0, CGRectGetWidth(UIScreen.mainScreen().bounds), CGRectGetHeight(UIScreen.mainScreen().bounds)))
+                    self.tabBarController?.view.addSubview(self.adView!)
+                    if ad.is_img == true {
+                        if let url = NSURL(string: "http://115.28.206.58:5000/static/image/adv_img/wanglaoju.jpg") {
+                            SDWebImageManager.sharedManager().downloadImageWithURL(url, options: .AllowInvalidSSLCertificates, progress: nil, completed: { (image, error, cacheType, finished, url) in
+                                if finished {
+                                    self.adView?.setupImage(image)
+                                    self.adView?.show()
+                                }
+                            })
+                        }
+                    } else {
+                        self.adView?.setupText(ad.text)
+                        self.adView?.show()
+                    }
+                }
+            }
+        }
+    }
 
     // MARK: Bluetooth matters
-
     // peripheralmanagerDelegate delegate methods
     func peripheralManagerDidUpdateState(peripheral: CBPeripheralManager) {
         switch peripheral.state {

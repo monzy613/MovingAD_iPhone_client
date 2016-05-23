@@ -13,12 +13,15 @@
 		F425157F1C9F0E2700D9B2D1 /* MZToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F425157E1C9F0E2700D9B2D1 /* MZToastView.swift */; };
 		F43162961CEB4AAF0021E3E9 /* MADUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43162951CEB4AAF0021E3E9 /* MADUserInfo.swift */; };
 		F43162981CEB4C390021E3E9 /* MADForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43162971CEB4C390021E3E9 /* MADForgetPasswordViewController.swift */; };
+		F44AB34F1CF2E9FD00A1D5E6 /* MADAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44AB34E1CF2E9FD00A1D5E6 /* MADAd.swift */; };
+		F44CA09E1CF1D77000E0C8C4 /* MADWalletController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44CA09D1CF1D77000E0C8C4 /* MADWalletController.swift */; };
 		F46EDB511C9FDAD6007E119D /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46EDB501C9FDAD6007E119D /* Animation.swift */; };
 		F46EDB591C9FDB1B007E119D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F46EDB581C9FDB1B007E119D /* CoreGraphics.framework */; };
 		F48092D11C9EF77D00A0046A /* MADRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48092D01C9EF77D00A0046A /* MADRegisterViewController.swift */; };
 		F48092D31C9EFCA800A0046A /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48092D21C9EFCA800A0046A /* URLs.swift */; };
 		F48092D51C9EFD2600A0046A /* NetworkUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48092D41C9EFD2600A0046A /* NetworkUtil.swift */; };
 		F48D773B1CB67780004BF2FC /* MADMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48D773A1CB67780004BF2FC /* MADMapViewController.swift */; };
+		F4C8195F1CF34FE800EAF93E /* MADAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C8195E1CF34FE800EAF93E /* MADAdView.swift */; };
 		F4D8B4621CA36933000F4FA3 /* MADDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D8B4611CA36933000F4FA3 /* MADDataStorage.swift */; };
 		F4D8F0061CB6441E002FAB7B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D8F0051CB6441E002FAB7B /* MapKit.framework */; };
 		F4ECFEF01C9EBECA0023DBF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ECFEEF1C9EBECA0023DBF8 /* AppDelegate.swift */; };
@@ -75,12 +78,15 @@
 		F43162941CEB39780021E3E9 /* IDRegrex.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = IDRegrex.playground; path = ../../../../Desktop/playgrounds/IDRegrex.playground; sourceTree = "<group>"; };
 		F43162951CEB4AAF0021E3E9 /* MADUserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MADUserInfo.swift; sourceTree = "<group>"; };
 		F43162971CEB4C390021E3E9 /* MADForgetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MADForgetPasswordViewController.swift; sourceTree = "<group>"; };
+		F44AB34E1CF2E9FD00A1D5E6 /* MADAd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MADAd.swift; sourceTree = "<group>"; };
+		F44CA09D1CF1D77000E0C8C4 /* MADWalletController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MADWalletController.swift; sourceTree = "<group>"; };
 		F46EDB501C9FDAD6007E119D /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		F46EDB581C9FDB1B007E119D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		F48092D01C9EF77D00A0046A /* MADRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MADRegisterViewController.swift; sourceTree = "<group>"; };
 		F48092D21C9EFCA800A0046A /* URLs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
 		F48092D41C9EFD2600A0046A /* NetworkUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkUtil.swift; sourceTree = "<group>"; };
 		F48D773A1CB67780004BF2FC /* MADMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MADMapViewController.swift; sourceTree = "<group>"; };
+		F4C8195E1CF34FE800EAF93E /* MADAdView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MADAdView.swift; sourceTree = "<group>"; };
 		F4D8B4611CA36933000F4FA3 /* MADDataStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MADDataStorage.swift; sourceTree = "<group>"; };
 		F4D8F0051CB6441E002FAB7B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		F4ECFEEC1C9EBECA0023DBF8 /* MovingAD_iPhone_client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovingAD_iPhone_client.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -175,10 +181,19 @@
 			name = Utils;
 			sourceTree = "<group>";
 		};
+		F4C8195D1CF34FC000EAF93E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F4C8195E1CF34FE800EAF93E /* MADAdView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		F4D8B4631CA36BBF000F4FA3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				F43162951CEB4AAF0021E3E9 /* MADUserInfo.swift */,
+				F44AB34E1CF2E9FD00A1D5E6 /* MADAd.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -206,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				F4ECFF041C9EBF800023DBF8 /* ThirdLibraries */,
+				F4C8195D1CF34FC000EAF93E /* Views */,
 				F4ECFF011C9EBF170023DBF8 /* ViewControllers */,
 				F49E8DC31CA19890006EF5F9 /* Utils */,
 				F4D8B4631CA36BBF000F4FA3 /* Models */,
@@ -228,6 +244,7 @@
 				F4FBF0721CA2EB110071CE11 /* MADUploadLicenceViewController.swift */,
 				F4F1B7851CA42041006C6C23 /* MADNewUserViewController.swift */,
 				F48D773A1CB67780004BF2FC /* MADMapViewController.swift */,
+				F44CA09D1CF1D77000E0C8C4 /* MADWalletController.swift */,
 				F43162941CEB39780021E3E9 /* IDRegrex.playground */,
 			);
 			name = ViewControllers;
@@ -426,6 +443,7 @@
 				F4ECFF3A1C9EBF960023DBF8 /* SpringLabel.swift in Sources */,
 				F4ECFF2F1C9EBF960023DBF8 /* ImageLoader.swift in Sources */,
 				F4D8B4621CA36933000F4FA3 /* MADDataStorage.swift in Sources */,
+				F44CA09E1CF1D77000E0C8C4 /* MADWalletController.swift in Sources */,
 				F4ECFF341C9EBF960023DBF8 /* Misc.swift in Sources */,
 				F48D773B1CB67780004BF2FC /* MADMapViewController.swift in Sources */,
 				F4ECFF421C9EBFD40023DBF8 /* SwiftyJSON.swift in Sources */,
@@ -438,6 +456,7 @@
 				F4FBF0771CA2EE230071CE11 /* Definitions.swift in Sources */,
 				F43162961CEB4AAF0021E3E9 /* MADUserInfo.swift in Sources */,
 				F4ECFF3C1C9EBF960023DBF8 /* SpringTextView.swift in Sources */,
+				F4C8195F1CF34FE800EAF93E /* MADAdView.swift in Sources */,
 				F4ECFF031C9EBF4F0023DBF8 /* MADLoginViewController.swift in Sources */,
 				F4ECFF2E1C9EBF960023DBF8 /* DesignableView.swift in Sources */,
 				F4ECFF371C9EBF960023DBF8 /* SpringAnimation.swift in Sources */,
@@ -454,6 +473,7 @@
 				F4ECFF381C9EBF960023DBF8 /* SpringButton.swift in Sources */,
 				F4ECFF251C9EBF960023DBF8 /* AsyncImageView.swift in Sources */,
 				F418B6B71CA01FD100CA7581 /* UIColorExtension.swift in Sources */,
+				F44AB34F1CF2E9FD00A1D5E6 /* MADAd.swift in Sources */,
 				F4ECFF2B1C9EBF960023DBF8 /* DesignableTabBarController.swift in Sources */,
 				F4ECFF261C9EBF960023DBF8 /* AutoTextView.swift in Sources */,
 				F48092D31C9EFCA800A0046A /* URLs.swift in Sources */,
