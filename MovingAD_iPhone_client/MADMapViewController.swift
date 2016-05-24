@@ -149,7 +149,8 @@ class MADMapViewController: UIViewController, MAMapViewDelegate, AMapLocationMan
                 print("no cityCode")
                 return
             }
-            Alamofire.request(.GET, MADURL.get_advs(meter: 30000, lng: currentLocation.coordinate.longitude, lat: currentLocation.coordinate.latitude), parameters: nil).responseJSON(completionHandler: { (res) in
+            let url = MADURL.get_advs(meter: 30000, lng: currentLocation.coordinate.longitude, lat: currentLocation.coordinate.latitude)
+            Alamofire.request(.GET, url, parameters: nil).responseJSON(completionHandler: { (res) in
                 let json = JSON(res.result.value ?? [])
                 if let adJSONArray = json.array {
                     for adJSON in adJSONArray {
@@ -224,20 +225,15 @@ class MADMapViewController: UIViewController, MAMapViewDelegate, AMapLocationMan
     }
 
     func showAd(ad: MADAd) {
-        Alamofire.request(.GET, MADURL.post_adv(ad.adv_ID), parameters: nil).responseJSON{ (res) in
+        let url = MADURL.post_adv(ad.adv_ID)
+        Alamofire.request(.GET, url, parameters: nil).responseJSON{ (res) in
             let json = JSON(res.result.value ?? [])
             if let error = res.result.error {
                 print(error)
                 return
             }
             if let status = json["status"].string {
-                if status == "430" {
-                    print("Wrong time")
-                } else if status == "420" {
-                    print("too frequent")
-                } else if status == "410" {
-                    print("failed")
-                } else if status == "400" {
+                if status == "400" {
                     print("right time")
                     MADUserInfo.currentUserInfo?.account_money += ad.money
                     self.adView = MADAdView(frame: CGRectMake(0, 0, CGRectGetWidth(UIScreen.mainScreen().bounds), CGRectGetHeight(UIScreen.mainScreen().bounds)))
@@ -255,7 +251,12 @@ class MADMapViewController: UIViewController, MAMapViewDelegate, AMapLocationMan
                         self.adView?.setupText(ad.text)
                         self.adView?.show()
                     }
+                    return
                 }
+                print("something wrong: \(status)")
+                self.advertisingTimer.invalidate()
+                self.advertisingTimer = nil
+                self.startAdvertising()
             }
         }
     }

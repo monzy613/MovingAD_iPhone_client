@@ -64,7 +64,7 @@ class MADURL {
     }
 
     class func post_adv<T>(adv_ID: T) -> String {
-        return "\(MADURL.baseURL)/app/post_adv/\(adv_ID)/"
+        return "\(MADURL.baseURL)/app/post_adv/\(adv_ID)"
     }
 
     class var get_records: String {
