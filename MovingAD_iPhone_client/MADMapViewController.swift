@@ -11,7 +11,7 @@ import CoreBluetooth
 import Alamofire
 import SDWebImage
 
-private let adLength: NSTimeInterval = 3.0
+private let adLength: NSTimeInterval = 10.0
 
 class MADMapViewController: UIViewController, MAMapViewDelegate, AMapLocationManagerDelegate, AMapSearchDelegate, CBPeripheralManagerDelegate, CBCentralManagerDelegate, CBPeripheralDelegate  {
 
