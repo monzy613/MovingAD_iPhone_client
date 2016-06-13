@@ -241,6 +241,7 @@ class MADMapViewController: UIViewController, MAMapViewDelegate, AMapLocationMan
             if let status = json["status"].string {
                 if status == "400" || status == "420" {
                     print("right time")
+                    MADUserInfo.currentUserInfo?.account_money += ad.money
                     success?(ad)
                     return
                 }

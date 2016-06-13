@@ -20,6 +20,7 @@
 		F48092D11C9EF77D00A0046A /* MADRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48092D01C9EF77D00A0046A /* MADRegisterViewController.swift */; };
 		F48092D31C9EFCA800A0046A /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48092D21C9EFCA800A0046A /* URLs.swift */; };
 		F48092D51C9EFD2600A0046A /* NetworkUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48092D41C9EFD2600A0046A /* NetworkUtil.swift */; };
+		F488214B1D0EB2F300443DD4 /* MADTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F488214A1D0EB2F300443DD4 /* MADTabViewController.swift */; };
 		F48D773B1CB67780004BF2FC /* MADMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48D773A1CB67780004BF2FC /* MADMapViewController.swift */; };
 		F4C8195F1CF34FE800EAF93E /* MADAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C8195E1CF34FE800EAF93E /* MADAdView.swift */; };
 		F4D8B4621CA36933000F4FA3 /* MADData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D8B4611CA36933000F4FA3 /* MADData.swift */; };
@@ -85,6 +86,7 @@
 		F48092D01C9EF77D00A0046A /* MADRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MADRegisterViewController.swift; sourceTree = "<group>"; };
 		F48092D21C9EFCA800A0046A /* URLs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
 		F48092D41C9EFD2600A0046A /* NetworkUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkUtil.swift; sourceTree = "<group>"; };
+		F488214A1D0EB2F300443DD4 /* MADTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MADTabViewController.swift; sourceTree = "<group>"; };
 		F48D773A1CB67780004BF2FC /* MADMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MADMapViewController.swift; sourceTree = "<group>"; };
 		F4C8195E1CF34FE800EAF93E /* MADAdView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MADAdView.swift; sourceTree = "<group>"; };
 		F4D8B4611CA36933000F4FA3 /* MADData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MADData.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 		F4ECFF011C9EBF170023DBF8 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F488214A1D0EB2F300443DD4 /* MADTabViewController.swift */,
 				F4FBF0741CA2EE0B0071CE11 /* ViewController.swift */,
 				F4ECFF021C9EBF4F0023DBF8 /* MADLoginViewController.swift */,
 				F43162971CEB4C390021E3E9 /* MADForgetPasswordViewController.swift */,
@@ -468,6 +471,7 @@
 				F425157F1C9F0E2700D9B2D1 /* MZToastView.swift in Sources */,
 				F4ECFF2C1C9EBF960023DBF8 /* DesignableTextField.swift in Sources */,
 				F4ECFF241C9EBF960023DBF8 /* AsyncButton.swift in Sources */,
+				F488214B1D0EB2F300443DD4 /* MADTabViewController.swift in Sources */,
 				F4ECFF311C9EBF960023DBF8 /* KeyboardLayoutConstraint.swift in Sources */,
 				F4FBF0751CA2EE0B0071CE11 /* ViewController.swift in Sources */,
 				F4ECFF381C9EBF960023DBF8 /* SpringButton.swift in Sources */,

@@ -492,7 +492,7 @@
         <!--我的钱包-->
         <scene sceneID="we9-I1-KGf">
             <objects>
-                <viewController id="tRP-CA-imd" customClass="MADWalletController" customModule="MovingAD_iPhone_client" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MADWalletController" id="tRP-CA-imd" customClass="MADWalletController" customModule="MovingAD_iPhone_client" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hk1-QX-KNL"/>
                         <viewControllerLayoutGuide type="bottom" id="vbC-gH-PsI"/>
@@ -555,12 +555,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JVA-z4-LZx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1066.5" y="584.5"/>
+            <point key="canvasLocation" x="1092.5" y="1053.5"/>
         </scene>
         <!--主页-->
         <scene sceneID="C8Y-aB-sh9">
             <objects>
-                <viewController id="DiA-rK-hqP" customClass="MADHomeViewController" customModule="MovingAD_iPhone_client" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MADHomeViewController" id="DiA-rK-hqP" customClass="MADHomeViewController" customModule="MovingAD_iPhone_client" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QB3-Vq-9dI"/>
                         <viewControllerLayoutGuide type="bottom" id="EP1-RD-bCr"/>
@@ -625,7 +625,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wbc-A4-caI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="597.5" y="739.5"/>
+            <point key="canvasLocation" x="653.5" y="1053.5"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ekB-sK-oYu">
@@ -651,7 +651,7 @@
         <!--地图-->
         <scene sceneID="zN4-oA-2ey">
             <objects>
-                <viewController id="Ybs-iE-hyx" customClass="MADMapViewController" customModule="MovingAD_iPhone_client" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MADMapViewController" id="Ybs-iE-hyx" customClass="MADMapViewController" customModule="MovingAD_iPhone_client" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ffx-k8-bS0"/>
                         <viewControllerLayoutGuide type="bottom" id="I9Z-0C-MZs"/>
@@ -684,7 +684,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gKz-Jf-geu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1349.5" y="1481.5"/>
+            <point key="canvasLocation" x="653.5" y="1824.5"/>
         </scene>
         <!--Forget Password View Controller-->
         <scene sceneID="8PE-rq-IEq">
@@ -829,18 +829,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c7C-6G-h5c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-501.5" y="729.5"/>
+            <point key="canvasLocation" x="-331.5" y="795.5"/>
         </scene>
     </scenes>
     <resources>
-        <image name="account" width="22" height="22"/>
-        <image name="compass" width="22" height="22"/>
+        <image name="account" width="20" height="20"/>
+        <image name="compass" width="20" height="20"/>
         <image name="home" width="24" height="20"/>
         <image name="launchscreen" width="511" height="935"/>
         <image name="movingAD" width="511" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="pv6-T0-bkU"/>
         <segue reference="HbX-PC-JWk"/>
-        <segue reference="ial-JU-yzB"/>
     </inferredMetricsTieBreakers>
 </document>

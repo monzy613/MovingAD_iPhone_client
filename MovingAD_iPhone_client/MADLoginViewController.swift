@@ -67,7 +67,8 @@ class MADLoginViewController: UIViewController, UITextFieldDelegate {
                     MADData.save(value: password, withKey: .Password)
                     MADUserInfo.currentUserInfo = MADUserInfo(json: json)
                     self.hud?.hideHUD(withText: "登录成功", andDelay: 0.3)
-                    self.performSegueWithIdentifier("LoginSuccessSegue", sender: self)
+                    let tabBarController = MADTabViewController()
+                    self.presentViewController(tabBarController, animated: true, completion: nil)
                     Alamofire.request(.GET, MADURL.get_records, parameters: nil).responseJSON(completionHandler: { (res) in
                         let json = JSON(res.result.value ?? [])
                         print(json)
@@ -91,7 +92,6 @@ class MADLoginViewController: UIViewController, UITextFieldDelegate {
     //textField delegage methods
     func textFieldDidEndEditing(textField: UITextField) {
     }
-    
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         if textField == accountTextField {
