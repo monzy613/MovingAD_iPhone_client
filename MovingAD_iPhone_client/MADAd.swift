@@ -23,8 +23,15 @@ class MADAd {
     var range: Float = 0.0
     var polygonPoints: [CLLocation]!
     var centers: [CLLocation]!
+    var adJSON: JSON
+    var btJSON: String {
+        get {
+            return "{\"is_img\":\(is_img),\"text\":\"\(text)\",\"img_src\":\"\(img_src)\"}"
+        }
+    }
 
     init(json: JSON) {
+        adJSON = json
         type = MADAdType(rawValue: Int(json["type"].stringValue) ?? 0) ?? .Polygon
         money = json["money"].floatValue
         adv_ID = json["adv_ID"].intValue

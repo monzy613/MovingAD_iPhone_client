@@ -21,16 +21,11 @@ class MADNewUserViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        checkLogin()
     }
     
     @IBAction func devBack(sender: UIButton) {
@@ -49,6 +44,10 @@ class MADNewUserViewController: UIViewController {
         } else {
             devTimer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(MADNewUserViewController.devJudge), userInfo: nil, repeats: true)
         }
+    }
+
+    @IBAction func loginPageButtonPressed(sender: DesignableButton) {
+        performSegueWithIdentifier("LoginSegue", sender: self)
     }
     
     func devJudge() {
@@ -92,14 +91,13 @@ class MADNewUserViewController: UIViewController {
         self.presentViewController(serverlistAlert, animated: true, completion: nil)
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // MARK: - private
+    private func checkLogin() -> Bool {
+        if let _ = MADData.getValue(withKey: .Account), let _ = MADData.getValue(withKey: .Password) {
+            loginPageButtonPressed(loginButton)
+            return true
+        }
+        return false
     }
-    */
 
 }

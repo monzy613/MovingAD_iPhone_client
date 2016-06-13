@@ -63,6 +63,8 @@ class MADLoginViewController: UIViewController, UITextFieldDelegate {
                         }
                     }
                     print("loginSuccess: \(json)")
+                    MADData.save(value: account, withKey: .Account)
+                    MADData.save(value: password, withKey: .Password)
                     MADUserInfo.currentUserInfo = MADUserInfo(json: json)
                     self.hud?.hideHUD(withText: "登录成功", andDelay: 0.3)
                     self.performSegueWithIdentifier("LoginSuccessSegue", sender: self)
@@ -121,14 +123,21 @@ class MADLoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        if checkLogin() {
+            return
+        }
         loginViewOriginCenter = loginView.center
         initObservers()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
+    private func checkLogin() -> Bool {
+        if let account = MADData.getValue(withKey: .Account), let password = MADData.getValue(withKey: .Password) {
+            accountTextField.text = account
+            passwordTextField.text = password
+            loginButtonPressed(loginButton)
+            return true
+        }
+        return false
+    }
 }

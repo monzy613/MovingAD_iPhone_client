@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2DD-ZX-DE3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G12a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2DD-ZX-DE3">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -236,6 +236,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchscreen" translatesAutoresizingMaskIntoConstraints="NO" id="3db-Z0-M8D">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="3db-Z0-M8D" secondAttribute="height" multiplier="1:1" id="kJT-fa-f12"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="kJT-fa-f12"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="870-sW-L8R" customClass="DesignableButton" customModule="MovingAD_iPhone_client" customModuleProvider="target">
                                 <rect key="frame" x="197" y="603" width="162" height="49"/>
                                 <color key="backgroundColor" red="0.0" green="0.81568627450980391" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -276,7 +287,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" identifier="LoginSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="ipK-DM-RFV"/>
+                                    <action selector="loginPageButtonPressed:" destination="2DD-ZX-DE3" eventType="touchUpInside" id="26U-cx-nPW"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C2c-Dl-2PU">
@@ -289,17 +300,6 @@
                                     <action selector="devBack:" destination="2DD-ZX-DE3" eventType="touchUpInside" id="q8t-gT-qh8"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchscreen" translatesAutoresizingMaskIntoConstraints="NO" id="3db-Z0-M8D">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="3db-Z0-M8D" secondAttribute="height" multiplier="1:1" id="kJT-fa-f12"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="kJT-fa-f12"/>
-                                    </mask>
-                                </variation>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -336,11 +336,12 @@
                     <connections>
                         <outlet property="loginButton" destination="b1o-a9-7Bd" id="pDR-wC-y2B"/>
                         <outlet property="registerButton" destination="870-sW-L8R" id="iQt-UN-STL"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="LoginSegue" modalPresentationStyle="overCurrentContext" id="7nZ-CE-MJM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pih-i0-amz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="560.5" y="-63.5"/>
+            <point key="canvasLocation" x="181.5" y="-108.5"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="UW4-LA-M3y">
@@ -510,6 +511,7 @@
                                 <rect key="frame" x="127" y="227" width="120" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="Jqv-ki-BET"/>
+                                    <constraint firstAttribute="width" secondItem="4Yn-mw-boC" secondAttribute="height" multiplier="3:1" id="c9V-OG-Sl0"/>
                                 </constraints>
                                 <state key="normal" title="提现"/>
                                 <userDefinedRuntimeAttributes>
@@ -548,11 +550,12 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="cash" destination="uDg-nU-d0E" id="orx-MK-sGC"/>
+                        <segue destination="2DD-ZX-DE3" kind="presentation" identifier="LogoutSegue" modalTransitionStyle="crossDissolve" id="HbX-PC-JWk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JVA-z4-LZx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1050.5" y="745.5"/>
+            <point key="canvasLocation" x="1066.5" y="584.5"/>
         </scene>
         <!--主页-->
         <scene sceneID="C8Y-aB-sh9">
@@ -637,7 +640,6 @@
                     <connections>
                         <segue destination="2DD-ZX-DE3" kind="presentation" identifier="LogoutSegue" modalTransitionStyle="crossDissolve" id="KqB-yG-To8"/>
                         <segue destination="DiA-rK-hqP" kind="relationship" relationship="viewControllers" id="bEk-9p-H5C"/>
-                        <segue destination="WLj-gT-cRN" kind="relationship" relationship="viewControllers" id="xZW-7O-z3V"/>
                         <segue destination="Ybs-iE-hyx" kind="relationship" relationship="viewControllers" id="KaX-IR-7hf"/>
                         <segue destination="hZj-uM-1g8" kind="relationship" relationship="viewControllers" id="cS5-T2-VQ9"/>
                     </connections>
@@ -646,7 +648,7 @@
             </objects>
             <point key="canvasLocation" x="92.5" y="773.5"/>
         </scene>
-        <!--定位-->
+        <!--地图-->
         <scene sceneID="zN4-oA-2ey">
             <objects>
                 <viewController id="Ybs-iE-hyx" customClass="MADMapViewController" customModule="MovingAD_iPhone_client" customModuleProvider="target" sceneMemberID="viewController">
@@ -659,87 +661,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="定位" image="compass" id="ARN-TL-ixS"/>
+                    <tabBarItem key="tabBarItem" title="地图" image="compass" id="ARN-TL-ixS"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zec-Lb-DUT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="140.5" y="1824.5"/>
-        </scene>
-        <!--蓝牙连接-->
-        <scene sceneID="4Qn-Ox-gOA">
-            <objects>
-                <viewController id="WLj-gT-cRN" customClass="ViewController" customModule="MovingAD_iPhone_client" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="yVq-v8-HSl"/>
-                        <viewControllerLayoutGuide type="bottom" id="50R-ob-mRn"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="51i-T5-MPq">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="75H-2V-oQZ">
-                                <rect key="frame" x="0.0" y="20" width="375" height="565"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eMl-zR-jRb">
-                                <rect key="frame" x="319" y="585" width="56" height="33"/>
-                                <color key="backgroundColor" red="0.54709597119999998" green="0.56103170010000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="eMl-zR-jRb" secondAttribute="height" multiplier="25:15" id="WDF-Ue-ckD"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
-                                <state key="normal" title="Send!">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="sendButtonPressed:" destination="WLj-gT-cRN" eventType="touchUpInside" id="12H-4E-R0A"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1hH-d8-pUm">
-                                <rect key="frame" x="0.0" y="585" width="319" height="33"/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="1hH-d8-pUm" firstAttribute="leading" secondItem="51i-T5-MPq" secondAttribute="leading" id="5XS-n0-u1C"/>
-                            <constraint firstItem="1hH-d8-pUm" firstAttribute="height" secondItem="eMl-zR-jRb" secondAttribute="height" id="6qX-ea-Y3W"/>
-                            <constraint firstItem="50R-ob-mRn" firstAttribute="top" secondItem="1hH-d8-pUm" secondAttribute="bottom" id="8r2-10-sa4"/>
-                            <constraint firstItem="75H-2V-oQZ" firstAttribute="leading" secondItem="51i-T5-MPq" secondAttribute="leading" id="CnC-Xj-Wp4"/>
-                            <constraint firstItem="50R-ob-mRn" firstAttribute="top" secondItem="eMl-zR-jRb" secondAttribute="bottom" id="RiG-TY-cvW"/>
-                            <constraint firstItem="1hH-d8-pUm" firstAttribute="top" secondItem="75H-2V-oQZ" secondAttribute="bottom" id="TTl-xt-2kx"/>
-                            <constraint firstAttribute="trailing" secondItem="75H-2V-oQZ" secondAttribute="trailing" id="UIV-b8-cSh"/>
-                            <constraint firstItem="50R-ob-mRn" firstAttribute="top" secondItem="1hH-d8-pUm" secondAttribute="bottom" id="Zie-87-JN1"/>
-                            <constraint firstItem="1hH-d8-pUm" firstAttribute="top" secondItem="75H-2V-oQZ" secondAttribute="bottom" id="e29-6W-Ehf"/>
-                            <constraint firstItem="eMl-zR-jRb" firstAttribute="leading" secondItem="1hH-d8-pUm" secondAttribute="trailing" id="eXh-Qk-TJ9"/>
-                            <constraint firstAttribute="trailing" secondItem="eMl-zR-jRb" secondAttribute="trailing" id="g9s-f8-Ljg"/>
-                            <constraint firstItem="50R-ob-mRn" firstAttribute="top" secondItem="eMl-zR-jRb" secondAttribute="bottom" id="tMs-TS-TWm"/>
-                            <constraint firstItem="75H-2V-oQZ" firstAttribute="top" secondItem="yVq-v8-HSl" secondAttribute="bottom" id="xXt-2p-eq9"/>
-                            <constraint firstItem="eMl-zR-jRb" firstAttribute="width" secondItem="51i-T5-MPq" secondAttribute="width" multiplier="0.15" id="z4Y-S0-caw"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="e29-6W-Ehf"/>
-                                <exclude reference="RiG-TY-cvW"/>
-                                <exclude reference="Zie-87-JN1"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="蓝牙连接" image="bluetooth" id="iTX-Ki-ghj"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <connections>
-                        <outlet property="messageBox" destination="75H-2V-oQZ" id="9PU-7C-B2I"/>
-                        <outlet property="messageInutField" destination="1hH-d8-pUm" id="E0f-8i-8yS"/>
-                        <outlet property="sendButton" destination="eMl-zR-jRb" id="48U-Rc-SFO"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Rd-MR-oeL" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="597.5" y="1513.5"/>
         </scene>
         <!--Test View Controller-->
         <scene sceneID="E2W-bR-P0j">
@@ -908,13 +834,13 @@
     </scenes>
     <resources>
         <image name="account" width="22" height="22"/>
-        <image name="bluetooth" width="20" height="20"/>
         <image name="compass" width="22" height="22"/>
         <image name="home" width="24" height="20"/>
         <image name="launchscreen" width="511" height="935"/>
         <image name="movingAD" width="511" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pv6-T0-bkU"/>
+        <segue reference="HbX-PC-JWk"/>
+        <segue reference="ial-JU-yzB"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -12,5 +12,8 @@ target 'MovingAD_iPhone_client' do
 	pod 'AMapLocation'
 	pod 'BUKImagePickerController'
 	pod 'BUKPhotoEditViewController'
+	pod 'MZPopView'
+
+	pod 'BabyBluetooth'
 end
 

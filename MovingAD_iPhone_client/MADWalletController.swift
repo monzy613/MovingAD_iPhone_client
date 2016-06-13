@@ -22,10 +22,14 @@ class MADWalletController: UIViewController {
 
     // MARK: - actions -
     @IBAction func logoutButtonPressed(sender: UIBarButtonItem) {
-        let newUserController = MADNewUserViewController()
-        dispatch_async(dispatch_get_main_queue()) {
-            self.presentViewController(newUserController, animated: true, completion: nil)
-        }
+        let alert = UIAlertController(title: "退出登录", message: "确认退出登录？", preferredStyle: .Alert)
+
+        alert.addAction(UIAlertAction(title: "是", style: .Destructive, handler: { (action) in
+            MADData.sweepAllData()
+            self.performSegueWithIdentifier("LogoutSegue", sender: self)
+        }))
+        alert.addAction(UIAlertAction(title: "否", style: .Cancel, handler: nil))
+        presentViewController(alert, animated: true, completion: nil)
     }
 
     @IBAction func getcashButtonPressed(sender: DesignableButton) {
