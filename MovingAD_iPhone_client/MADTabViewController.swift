@@ -10,6 +10,8 @@ import UIKit
 import BATabBarController
 
 class MADTabViewController: UIViewController, BATabBarControllerDelegate {
+    static var isConnectedToCentral = false
+    static var customMessage: String?
     var baTabBarController: BATabBarController!
 
     override func viewDidLoad() {
@@ -21,6 +23,7 @@ class MADTabViewController: UIViewController, BATabBarControllerDelegate {
     private func initViewControllers() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let homeViewController = storyboard.instantiateViewControllerWithIdentifier("MADHomeViewController") as! MADHomeViewController
+        let homeNavigationController = UINavigationController(rootViewController: homeViewController)
         let mapViewController = storyboard.instantiateViewControllerWithIdentifier("MADMapViewController") as! MADMapViewController
         let walletViewController = storyboard.instantiateViewControllerWithIdentifier("MADWalletController") as! MADWalletController
         let walletNavigationController = UINavigationController(rootViewController: walletViewController)
@@ -30,7 +33,7 @@ class MADTabViewController: UIViewController, BATabBarControllerDelegate {
         let walletTabItem = BATabBarItem(image: UIImage(named: "account"), selectedImage: UIImage(named: "account"))
 
         baTabBarController = BATabBarController()
-        baTabBarController.viewControllers = [homeViewController, mapViewController, walletNavigationController]
+        baTabBarController.viewControllers = [homeNavigationController, mapViewController, walletNavigationController]
         baTabBarController.tabBarItems = [homeTabItem, mapTabItem, walletTabItem]
         baTabBarController.delegate = self
         baTabBarController.tabBarBackgroundColor = UIColor.blackColor()

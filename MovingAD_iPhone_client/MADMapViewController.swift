@@ -199,6 +199,13 @@ class MADMapViewController: UIViewController, MAMapViewDelegate, AMapLocationMan
     }
 
     func nextAd(success: ((MADAd) -> ())?, failure: (() -> ())?) {
+        if let customMessage = MADTabViewController.customMessage {
+            let csAd = MADAd()
+            csAd.text = customMessage
+            success?(csAd)
+            MADTabViewController.customMessage = nil
+            return
+        }
         guard let ads = adArray else {
             failure?()
             return
@@ -239,6 +246,12 @@ class MADMapViewController: UIViewController, MAMapViewDelegate, AMapLocationMan
                 return
             }
             if let status = json["status"].string {
+                print("right time")
+                MADUserInfo.currentUserInfo?.account_money += ad.money
+                success?(ad)
+                return
+
+                
                 if status == "400" || status == "420" {
                     print("right time")
                     MADUserInfo.currentUserInfo?.account_money += ad.money
@@ -273,6 +286,7 @@ class MADMapViewController: UIViewController, MAMapViewDelegate, AMapLocationMan
 
         baby.peripheralModelBlockOnDidReceiveReadRequest { (peripheralManager, request) in
             print("read request")
+            MADTabViewController.isConnectedToCentral = true
             if request.characteristic == self.adInfoCharacteristic {
                 self.nextAd({ (ad) in
                     request.value = ad.btJSON.dataUsingEncoding(NSUTF8StringEncoding)

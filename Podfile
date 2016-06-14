@@ -14,7 +14,7 @@ target 'MovingAD_iPhone_client' do
 	pod 'BUKPhotoEditViewController'
 	pod 'MZPopView'
 	pod 'BATabBarController'
-
+	pod 'MZPopView'
 	pod 'BabyBluetooth'
 end
 

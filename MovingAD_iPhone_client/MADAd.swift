@@ -30,6 +30,10 @@ class MADAd {
         }
     }
 
+    init() {
+        adJSON = JSON(arrayLiteral: [])
+    }
+
     init(json: JSON) {
         adJSON = json
         type = MADAdType(rawValue: Int(json["type"].stringValue) ?? 0) ?? .Polygon

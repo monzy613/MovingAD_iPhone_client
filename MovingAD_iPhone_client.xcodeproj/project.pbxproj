@@ -238,8 +238,8 @@
 		F4ECFF011C9EBF170023DBF8 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				F488214A1D0EB2F300443DD4 /* MADTabViewController.swift */,
 				F4FBF0741CA2EE0B0071CE11 /* ViewController.swift */,
+				F488214A1D0EB2F300443DD4 /* MADTabViewController.swift */,
 				F4ECFF021C9EBF4F0023DBF8 /* MADLoginViewController.swift */,
 				F43162971CEB4C390021E3E9 /* MADForgetPasswordViewController.swift */,
 				F48092D01C9EF77D00A0046A /* MADRegisterViewController.swift */,
@@ -349,6 +349,7 @@
 					F4ECFEEB1C9EBECA0023DBF8 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = 2ZRG877LXA;
+						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
 								enabled = 1;
@@ -613,13 +614,14 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MovingAD_iPhone_client/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Monzy.Zhang.MovingAD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "MovingAD_iPhone_client/MovingAD_iPhone_client-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};

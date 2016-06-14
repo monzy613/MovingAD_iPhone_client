@@ -13,14 +13,18 @@ class MADUserInfo {
     var name: String?
     var phone: String?
     var account_money: Float = 0.0
+    var id: String?
     var account_ID: String?
+    var checkState: String
 
     static var currentUserInfo: MADUserInfo?
 
     init(json: JSON) {
         name = json["user_name"].string
         phone = json["phone"].string
+        id = json["user_ID"].string
         account_money = json["account_money"].float ?? 0.0
         account_ID = json["account_ID"].string
+        checkState = json["check_flag"].string ?? "未审核"
     }
 }
