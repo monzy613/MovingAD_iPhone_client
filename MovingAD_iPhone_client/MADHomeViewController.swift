@@ -80,7 +80,7 @@ class MADHomeViewController: UIViewController {
         idLabel.text =  MADUserInfo.currentUserInfo?.id ?? ""
         if MADUserInfo.currentUserInfo!.checkState != "未审核" {
             checkStateLabel.setTitle(MADUserInfo.currentUserInfo!.checkState, forState: .Normal)
-            checkStateLabel.setTitleColor(UIColor.greenColor(), forState: .Normal)
+            changeCheckLabelColor(UIColor.greenColor())
         }
     }
 }

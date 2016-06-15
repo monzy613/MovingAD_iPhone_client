@@ -72,6 +72,10 @@ class MADURL {
             return "\(MADURL.baseURL)/app/get_records/"
         }
     }
+
+    class func get_money(money: String, pay_pwd: String) -> String {
+        return "\(MADURL.baseURL)/app/get_money/\(money)/?pay_pwd=\(pay_pwd)"
+    }
     
     
     //parameters

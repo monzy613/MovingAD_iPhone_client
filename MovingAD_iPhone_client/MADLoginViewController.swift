@@ -112,7 +112,7 @@ class MADLoginViewController: UIViewController, UITextFieldDelegate {
         if let userInfo = notif.userInfo {
             let keyboardFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
             let newCenterY = keyboardFrame.origin.y - loginView.frame.height / 2
-            MZAnim.animConstraint(constraint: loginViewCenterYConstraint, destConstant: Float(newCenterY - loginViewOriginCenter!.y))
+            MZAnim.animConstraint(constraint: loginViewCenterYConstraint, destConstant: Float(loginViewOriginCenter!.y - keyboardFrame.size.height / 2))
         }
     }
     

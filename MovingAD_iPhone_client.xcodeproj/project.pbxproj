@@ -17,6 +17,7 @@
 		F44CA09E1CF1D77000E0C8C4 /* MADWalletController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44CA09D1CF1D77000E0C8C4 /* MADWalletController.swift */; };
 		F46EDB511C9FDAD6007E119D /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46EDB501C9FDAD6007E119D /* Animation.swift */; };
 		F46EDB591C9FDB1B007E119D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F46EDB581C9FDB1B007E119D /* CoreGraphics.framework */; };
+		F47A14E31D106866009E759E /* MADGetMoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47A14E21D106866009E759E /* MADGetMoneyViewController.swift */; };
 		F48092D11C9EF77D00A0046A /* MADRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48092D01C9EF77D00A0046A /* MADRegisterViewController.swift */; };
 		F48092D31C9EFCA800A0046A /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48092D21C9EFCA800A0046A /* URLs.swift */; };
 		F48092D51C9EFD2600A0046A /* NetworkUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48092D41C9EFD2600A0046A /* NetworkUtil.swift */; };
@@ -83,6 +84,7 @@
 		F44CA09D1CF1D77000E0C8C4 /* MADWalletController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MADWalletController.swift; sourceTree = "<group>"; };
 		F46EDB501C9FDAD6007E119D /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		F46EDB581C9FDB1B007E119D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F47A14E21D106866009E759E /* MADGetMoneyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MADGetMoneyViewController.swift; sourceTree = "<group>"; };
 		F48092D01C9EF77D00A0046A /* MADRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MADRegisterViewController.swift; sourceTree = "<group>"; };
 		F48092D21C9EFCA800A0046A /* URLs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
 		F48092D41C9EFD2600A0046A /* NetworkUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkUtil.swift; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 				F4F1B7851CA42041006C6C23 /* MADNewUserViewController.swift */,
 				F48D773A1CB67780004BF2FC /* MADMapViewController.swift */,
 				F44CA09D1CF1D77000E0C8C4 /* MADWalletController.swift */,
+				F47A14E21D106866009E759E /* MADGetMoneyViewController.swift */,
 				F43162941CEB39780021E3E9 /* IDRegrex.playground */,
 			);
 			name = ViewControllers;
@@ -459,6 +462,7 @@
 				F4ECFF351C9EBF960023DBF8 /* SoundPlayer.swift in Sources */,
 				F4FBF0771CA2EE230071CE11 /* Definitions.swift in Sources */,
 				F43162961CEB4AAF0021E3E9 /* MADUserInfo.swift in Sources */,
+				F47A14E31D106866009E759E /* MADGetMoneyViewController.swift in Sources */,
 				F4ECFF3C1C9EBF960023DBF8 /* SpringTextView.swift in Sources */,
 				F4C8195F1CF34FE800EAF93E /* MADAdView.swift in Sources */,
 				F4ECFF031C9EBF4F0023DBF8 /* MADLoginViewController.swift in Sources */,

@@ -16,6 +16,14 @@ class MADWalletController: UIViewController {
     // MARK: life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        setMoney()
+    }
+
+    func setMoney() {
         let money = MADUserInfo.currentUserInfo?.account_money ?? 0.0
         cash.text = "余额: \(String.init(format: "%.3f", money)) 元"
     }
@@ -33,5 +41,14 @@ class MADWalletController: UIViewController {
     }
 
     @IBAction func getcashButtonPressed(sender: DesignableButton) {
+    }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let identifier = segue.identifier {
+            if identifier == "GetMoneySegue" {
+                let vc = segue.destinationViewController as! MADGetMoneyViewController
+                vc.walletVC = self
+            }
+        }
     }
 }

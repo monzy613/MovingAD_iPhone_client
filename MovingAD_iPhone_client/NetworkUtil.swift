@@ -181,7 +181,7 @@ class MADNetwork {
                         longitude: CLLocationDegrees(point.componentsSeparatedByString(", ")[0]) ?? 0.0)
                     points.append(location)
                 }
-                advLocationDic[adv_ID] = points
+            advLocationDic[adv_ID] = points
             }
             onSuccess(advLocationDic, json)
         }
