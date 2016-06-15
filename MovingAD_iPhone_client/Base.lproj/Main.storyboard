@@ -817,6 +817,11 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" id="OZb-Lt-w0A">
+                        <barButtonItem key="leftBarButtonItem" title="历史" id="QXz-oL-Gly">
+                            <connections>
+                                <action selector="historyButtonPressed:" destination="DiA-rK-hqP" id="lSZ-zI-Hsd"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="自定义信息" id="qXl-7O-J01">
                             <connections>
                                 <action selector="sendCustomInfoButtonPressed:" destination="DiA-rK-hqP" id="Dr2-Uf-TBZ"/>

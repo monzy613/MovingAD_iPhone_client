@@ -14,6 +14,8 @@ enum MADAdType: Int {
 }
 
 class MADAd {
+    static var history = [MADAd]()
+
     var type: MADAdType = .Polygon
     var is_img: Bool = false
     var money: Float = 0.0
@@ -24,6 +26,12 @@ class MADAd {
     var polygonPoints: [CLLocation]!
     var centers: [CLLocation]!
     var adJSON: JSON
+    var time: String!
+    var shortDate: String {
+        get {
+            return MADAd.shortDateStr(time ?? "0000-00-00 00:00:00")
+        }
+    }
     var btJSON: String {
         get {
             return "{\"is_img\":\(is_img),\"text\":\"\(text)\",\"img_src\":\"\(img_src)\"}"
@@ -45,7 +53,11 @@ class MADAd {
             img_src = json["img_src"].string
         } else {
             text = json["text"].string
+            if text == nil {
+                text = json["adv_text"].string
+            }
         }
+        time = json["time"].string
         switch type {
         case .Circles:
             range = Float(json["range"].stringValue) ?? 0.0
@@ -65,5 +77,16 @@ class MADAd {
                 }
             }
         }
+    }
+
+    private static func shortDateStr(dateStr: String) -> String {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "YY-MM-DD hh:mm:ss"
+        let date = dateFormatter.dateFromString(dateStr)
+        let cal = NSCalendar.currentCalendar()
+        let day = cal.component(NSCalendarUnit.Day, fromDate: date ?? NSDate())
+        let month = cal.component(NSCalendarUnit.Month, fromDate: date ?? NSDate())
+        let year = cal.component(NSCalendarUnit.Year, fromDate: date ?? NSDate())
+        return "\(year)/\(month)/\(day)"
     }
 }

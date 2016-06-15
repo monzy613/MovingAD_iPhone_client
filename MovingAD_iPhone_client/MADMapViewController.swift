@@ -246,26 +246,19 @@ class MADMapViewController: UIViewController, MAMapViewDelegate, AMapLocationMan
                 return
             }
             if let status = json["status"].string {
-                print("right time")
-                MADUserInfo.currentUserInfo?.account_money += ad.money
-                success?(ad)
-                return
-
-                
-                if status == "400" || status == "420" {
+                if status == "400" {
                     print("right time")
                     MADUserInfo.currentUserInfo?.account_money += ad.money
                     success?(ad)
                     return
                 }
+
                 //failed
                 print("wrong time")
                 failure?()
             }
         }
     }
-
-
 
     // MARK: babybluetooth
     func setupDelegate() {
@@ -289,6 +282,8 @@ class MADMapViewController: UIViewController, MAMapViewDelegate, AMapLocationMan
             MADTabViewController.isConnectedToCentral = true
             if request.characteristic == self.adInfoCharacteristic {
                 self.nextAd({ (ad) in
+                    MADAd.history.insert(ad, atIndex: 0)
+                    MADHomeViewController.sharedInstance?.tableView?.reloadData()
                     request.value = ad.btJSON.dataUsingEncoding(NSUTF8StringEncoding)
                     peripheralManager.respondToRequest(request, withResult: .Success)
                     }, failure: { 

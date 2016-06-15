@@ -26,6 +26,7 @@
 		F4C8195F1CF34FE800EAF93E /* MADAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C8195E1CF34FE800EAF93E /* MADAdView.swift */; };
 		F4D8B4621CA36933000F4FA3 /* MADData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D8B4611CA36933000F4FA3 /* MADData.swift */; };
 		F4D8F0061CB6441E002FAB7B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D8F0051CB6441E002FAB7B /* MapKit.framework */; };
+		F4E7C0A11D111F9F00A7CF84 /* MADAdTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E7C0A01D111F9F00A7CF84 /* MADAdTableViewCell.swift */; };
 		F4ECFEF01C9EBECA0023DBF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ECFEEF1C9EBECA0023DBF8 /* AppDelegate.swift */; };
 		F4ECFEF51C9EBECA0023DBF8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4ECFEF31C9EBECA0023DBF8 /* Main.storyboard */; };
 		F4ECFEF71C9EBECA0023DBF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4ECFEF61C9EBECA0023DBF8 /* Assets.xcassets */; };
@@ -93,6 +94,7 @@
 		F4C8195E1CF34FE800EAF93E /* MADAdView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MADAdView.swift; sourceTree = "<group>"; };
 		F4D8B4611CA36933000F4FA3 /* MADData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MADData.swift; sourceTree = "<group>"; };
 		F4D8F0051CB6441E002FAB7B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		F4E7C0A01D111F9F00A7CF84 /* MADAdTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MADAdTableViewCell.swift; sourceTree = "<group>"; };
 		F4ECFEEC1C9EBECA0023DBF8 /* MovingAD_iPhone_client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovingAD_iPhone_client.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4ECFEEF1C9EBECA0023DBF8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4ECFEF41C9EBECA0023DBF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				F4C8195E1CF34FE800EAF93E /* MADAdView.swift */,
+				F4E7C0A01D111F9F00A7CF84 /* MADAdTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4E7C0A11D111F9F00A7CF84 /* MADAdTableViewCell.swift in Sources */,
 				F4ECFF3A1C9EBF960023DBF8 /* SpringLabel.swift in Sources */,
 				F4ECFF2F1C9EBF960023DBF8 /* ImageLoader.swift in Sources */,
 				F4D8B4621CA36933000F4FA3 /* MADData.swift in Sources */,

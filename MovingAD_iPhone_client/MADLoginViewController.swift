@@ -71,7 +71,13 @@ class MADLoginViewController: UIViewController, UITextFieldDelegate {
                     self.presentViewController(tabBarController, animated: true, completion: nil)
                     Alamofire.request(.GET, MADURL.get_records, parameters: nil).responseJSON(completionHandler: { (res) in
                         let json = JSON(res.result.value ?? [])
+                        //history
                         print(json)
+                        if let historyJSONs = json.array {
+                            for historyJSON in historyJSONs {
+                                MADAd.history.insert(MADAd(json: historyJSON), atIndex: 0)
+                            }
+                        }
                     })
             }
         } else {
